@@ -1,0 +1,183 @@
+:root {
+    /* sizes */
+    --width_total: 100%;
+    --height_total: 100vh;
+    --h-w_base: 100px;
+
+    /* fonts */
+    --font_small: 12px;
+
+    /* colors */
+    --color_black: #000000;
+    --color_white: #ffffff;
+    --color_dark: #0b0b0b;
+
+}
+
+
+/* --- FONTS --- */
+@font-face {
+    font-family: Autograf;
+    src: url(../fonts/Autograf/Autograf_PersonalUseOnly.ttf);
+}
+
+@font-face {
+    font-family: Inconsolata;
+    src: url(../fonts/Inconsolata/static/Inconsolata-Regular.ttf);
+}
+
+@font-face {
+    font-family: Space_Grotesk;
+    src: url(../fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf);
+}
+
+
+/* --- GLOBAL --- */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: var(--color_black);
+    color: var(--color_white);
+    font-family: Space_Grotesk;
+    font-size: var(--font_small);
+    font-weight: lighter;
+    letter-spacing: 1px;
+    text-transform: lowercase;
+}
+
+
+/* --- FONTS --- */
+.title {
+    position: absolute;
+    left: -30px;
+    bottom: -50px;
+    z-index: 0;
+
+    & h2 {
+        font-size: 33vw;
+        font-weight: lighter;
+        font-style: italic;
+        font-family: Autograf;
+    }
+}
+
+
+/* --- HEADER --- */
+header {
+    position: absolute;
+    width: var(--width_total);
+    height: var(--h-w_base);
+    display: flex;
+    z-index: 10;
+
+    & .header__content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        & .header__item {
+            width: var(--h-w_base);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            & a {
+                color: var(--color_white);
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+
+/* --- LATERAL --- */
+.lateral {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--h-w_base);
+    height: var(--height_total);
+    z-index: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+
+/* --- NOTE --- */
+.note {
+    position: absolute;
+    top: 120px;
+    left: 120px;
+    text-transform: uppercase;
+    font-family: Inconsolata;
+    letter-spacing: 0px;
+    z-index: 9;
+
+    & p:nth-child(2) {
+        padding: 0.4rem 1.4rem;
+    }
+}
+
+
+/* --- TERMINAL --- */
+.terminal {
+    position: absolute;
+    bottom: 50px;
+    right: 30px;
+    width: 250;
+    text-transform: lowercase;
+    font-family: Inconsolata;
+    letter-spacing: 0px;
+    
+    z-index: 9;
+
+    & .terminal__history, .terminal__input {
+        display: flex;
+        align-items: center;
+
+        & div:last-child {
+            padding-left: 0.6rem;
+        }
+
+        & input {
+            border: none;
+            outline: none;
+            background: none;
+            color: var(--color_white);
+            font-family: Inconsolata;
+        }
+    }
+}
+
+
+/* --- HOME --- */
+.home {
+    width: var(--width_total);
+    height: var(--height_total);
+    position: relative;
+    overflow: hidden;
+}
+
+.img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    width: 500px;
+
+    & img {
+        width: 100%;
+    }
+}
+
+
+
+/* --- ANIMATIONS --- */
