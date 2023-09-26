@@ -7,8 +7,8 @@ const TerminalInput = ({
     inputSend,}) => {
   return (
     <>
-        <div className="terminal__input">
-            <div className='terminalName'> { terminalName } </div>
+        <div className="terminal__content">
+            <div className='terminal__name'> { terminalName } </div>
             <div> 
                 <input type="text" 
                 autoFocus
@@ -20,3 +20,5 @@ const TerminalInput = ({
     </>
   )
 }
+
+export default TerminalInput

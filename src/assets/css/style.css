@@ -12,7 +12,7 @@
     --color_black: #000000;
     --color_white: #ffffff;
     --color_dark: #0b0b0b;
-
+    --color_green: #288b7c;
 }
 
 
@@ -130,33 +130,29 @@ header {
 .terminal {
     position: absolute;
     bottom: 50px;
-    right: 30px;
-    height: 300px;
+    right: 50px;
     width: 350px;
+    height: 300px;
     overflow: hidden;
-    /* font-size: var(--font_small); */
     text-transform: lowercase;
     letter-spacing: 0.6px;
     display: flex;
-    flex-direction: column;
     justify-content: flex-end;
+    flex-direction: column;
     z-index: 9;
 
-    background-color: red;
-  
-    & .terminal__history, & .terminal__input {
+    & .terminal__content {
         display: flex;
         align-items: center;
-        padding: 1.5px 0px;
 
-        & div.terminalName {
+        & div.terminal__name {
             padding-right: 0.6rem;
             font-weight: bold;
-            color: rgba(40, 139, 124, 11);
+            color: var(--color_green);
         }
 
-        & div.terminalType {
-            display: block !important;
+        & div.none {
+            display: none;
         }
 
         & input {
@@ -165,24 +161,38 @@ header {
             background: none;
             color: var(--color_white);
             font-family: Space_Grotesk;
-            font-size: var(--font_small);
+            /* font-size: var(--font_small); */
         }
     }
 
-    & .terminal__history.block {
-        display: block;
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 50px;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, .9));
+        pointer-events: none;
     }
 }
-.terminal::before{
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 50px;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, .9));
-    pointer-events: none;
-}
-.terminal::before {
-    top: 0;
+
+
+/* --- TERMINAL LIST --- */
+.terminal__list {
+    list-style: none;
+    display: block;
+    padding: 0px;
+    margin: 0px;
+    padding-left: 1.4rem;
+
+    & li {
+        padding: 0.2rem 0rem;
+
+        & svg {
+            margin-right: 0.4rem;
+            color: var(--color_green)
+        }
+    }
 }
 
 
