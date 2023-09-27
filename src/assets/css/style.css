@@ -42,7 +42,7 @@
 body {
     background: var(--color_black);
     color: var(--color_white);
-    font-family: Space_Grotesk;
+    font-family: Inconsolata;
     font-size: var(--font_normal);
     font-weight: lighter;
     letter-spacing: 1px;
@@ -132,10 +132,9 @@ header {
     bottom: 50px;
     right: 50px;
     width: 350px;
-    height: 300px;
+    height: 320px;
     overflow: hidden;
     text-transform: lowercase;
-    letter-spacing: 0.6px;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
@@ -144,6 +143,7 @@ header {
     & .terminal__content {
         display: flex;
         align-items: center;
+        padding: 0.15rem 0rem;
 
         & div.terminal__name {
             padding-right: 0.6rem;
@@ -160,9 +160,15 @@ header {
             outline: none;
             background: none;
             color: var(--color_white);
-            font-family: Space_Grotesk;
-            /* font-size: var(--font_small); */
+            font-family: Inconsolata;
+            font-size: var(--font_small);
+            letter-spacing: 1px;
         }
+    }
+
+    & .terminal__color {
+        color: var(--color_green);
+        font-weight: bold;
     }
 
     &::before{
@@ -183,15 +189,19 @@ header {
     display: block;
     padding: 0px;
     margin: 0px;
-    padding-left: 1.4rem;
+    padding: 0rem 1.6rem;
 
     & li {
-        padding: 0.2rem 0rem;
+        padding: 0rem 0rem 0.5rem;
 
         & svg {
-            margin-right: 0.4rem;
-            color: var(--color_green)
+            color: var(--color_green);
+            padding-right: 0.6rem;
         }
+    }
+
+    & li:last-child {
+        padding: 0rem 0rem 0rem;
     }
 }
 
