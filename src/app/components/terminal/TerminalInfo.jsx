@@ -39,7 +39,7 @@ const TerminalInfo = () => {
         <p><span className='terminal__color'>Hour:</span> { formattedTime }</p>
         <p><span className='terminal__color'>Browser:</span> { browserName }</p>
         <p><span className='terminal__color'>OS:</span> { osName }</p>
-        <p><pre className='terminal__color'>{ banner }</pre></p>
+        <pre className='terminal__color'>{ banner }</pre>
       </div>
     </div>
   );

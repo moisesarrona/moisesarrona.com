@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { commands, sections, terminalName, contents } from './terminalData'
+import { COMMANDS, SECTIONS, TERMINAL_NAME, CONTENTS } from './terminalData'
 import TerminalInput from './TerminalInput';
 import TerminalHistory from './TerminalHistory';
 import TerminalInfo from './TerminalInfo'
@@ -31,13 +31,13 @@ const Terminal = () => {
       const inputWords = input.split(' ');
       const firstWord = inputWords[0];
       const secondWord = inputWords[1];
-      const isWord = commands.includes(firstWord);
+      const isWord = COMMANDS.includes(firstWord);
       isWord? executeCommand(firstWord, secondWord) : msgError(firstWord, 'it is not a command');
     }
   }
 
   /**
-   * Redirect function to excute commands
+   * Redirect function to excute COMMANDS
    * @param {string} firstWord Input commanddd
    * @param {string} secondWord Input param
    */
@@ -71,10 +71,10 @@ const Terminal = () => {
    */
   const ls = (secondWord) => {
     if (secondWord === undefined)
-      sections.forEach((section) => {
-        if (section[active]) {    
-          const files = section[active].files;
-          const folders = section[active].folders;
+      SECTIONS.forEach((SECTION) => {
+        if (SECTION[active]) {    
+          const files = SECTION[active].files;
+          const folders = SECTION[active].folders;
           const all = [...files, ...folders];
           setHistory((prevHistory) => [...prevHistory, all]);
         }
@@ -105,7 +105,7 @@ const Terminal = () => {
 
     const msg = isCat? 'it is not a file' : 'it is not a foler'
 
-    sections.forEach((section) => {
+    SECTIONS.forEach((section) => {
       if (section[active]) {
         const target = isFile? section[active].files : section[active].folders
         if (target.includes(secondWord)) {
@@ -135,7 +135,7 @@ const Terminal = () => {
   }
 
   /**
-   * Build error message to commands
+   * Build error message to COMMANDS
    * @param {string} word 
    * @param {string} msg 
    */
@@ -148,10 +148,21 @@ const Terminal = () => {
    * @param {string} file 
    */
   const openFile = (file) => {
-    const matchingContent = contents.find((contentItem) => contentItem[active]
-    .some(item => item[file.split('.')[0]] !== undefined));
-    const content = matchingContent[active].find(item => item[file.split('.')[0]] !== undefined);
-    matchingContent? setHistory((prevHistory) => [...prevHistory, content[file.split('.')[0]]]) : msgError(file, 'Error in show content')
+    const matchingContent = CONTENTS.find((contentItem) => contentItem[active]);
+  
+    if (matchingContent) {
+      const activeContent = matchingContent[active];
+      const content = activeContent.find((item) => item[file.split('.')[0]] !== undefined);
+      
+      if (content) {
+        const contentValue = content[file.split('.')[0]];
+        setHistory((prevHistory) => [...prevHistory, contentValue]);
+      } else {
+        msgError(file, 'Error in show content');
+      }
+    } else {
+      msgError(file, 'Error in show content');
+    }
   }
   
   return (
@@ -162,10 +173,10 @@ const Terminal = () => {
             
             <TerminalHistory 
               history={ history } 
-              terminalName={ terminalName } />
+              terminalName={ TERMINAL_NAME } />
 
             <TerminalInput
-              terminalName={terminalName }
+              terminalName={TERMINAL_NAME }
               input={ input}
               setInput={ setInput }
               inputSend={ inputSend } />

@@ -1,4 +1,4 @@
-export const commands = [
+export const COMMANDS = [
   'ls',
   'cd',
   'cat',
@@ -6,7 +6,7 @@ export const commands = [
   'arron'
 ]
 
-export const sections = [
+export const SECTIONS = [
   {
     home: {
       id: 1,
@@ -15,30 +15,30 @@ export const sections = [
     },
     about: {
       id: 2,
-      files: ['readme.txt', 'portfolio.txt'],
+      files: ['readme.txt', 'skills.txt'],
       folders: []
     },
     contact: {
       id: 3,
       files: ['contact.txt'],
-      folers: []
+      folders: []
     }
   }
 ]
 
-export const contents = [
+export const CONTENTS = [
   {
     home: [
-      {readme: 'Heeeeeeey, my name is Moises Arrona, Im Software Engineer and Software Architect'}
+      { readme: 'Hi humans and robots, Im Software Architect and Software Engineer, I love writing 👨🏻‍💻 code and playing the guitar 🎸' }
     ],
     about: [
-      {readme: 'Well, lest go'},
-      {portfolio: 'Ok, my skill are ...'}
+      { readme: 'I worked at Werkn as a Frontend Developer, Grupo Castores as a Software Engineer, currently working at Flecha Amarilla as a Software Architect.' },
+      { skills: 'Throughout my professional career I have used various technologies and programming languages such as: Java, SpringBoot, C#, ASP.Net, PHP, Laravel, Angular, React, Git, GitLab Github, SqlServer, Mysql, DB2, AWS etc.' }
     ],
     contact: [
-      {contact: 'My contact is ...'}
+      { contact: 'My contact is ...' }
     ]
   }
 ]
 
-export const terminalName = '~/arrona@term > ';
+export const TERMINAL_NAME = '~/arrona@term > ';
