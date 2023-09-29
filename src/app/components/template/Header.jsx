@@ -1,23 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
-const itemPage = [
-  {
-    name: "home",
-    link: "/",
-    active: true
-  },
-  {
-    name: "about",
-    link: "/about",
-    active: true
-  },
-  {
-    name: "contact",
-    link: "/contact",
-    active: false
-  }
-]
+import { ITEM_PAGES } from './templateData'
 
 const Header = () => {
   return (
@@ -25,7 +8,7 @@ const Header = () => {
         <header>
             <div className="header__content">
                 {
-                  itemPage
+                  ITEM_PAGES
                   .filter(item => item.active == true)
                   .map((item, index) => {
                     return (
