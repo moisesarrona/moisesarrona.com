@@ -38,7 +38,7 @@ const TerminalHistory = ({ history, terminalName }) => {
 
               return (
                 <div className="terminal__content" key={ index }>
-                    <div className={ isCommand? 'terminal__name' : 'none' }>
+                    <div className={ isCommand? 'terminal__name' : 'terminal__name--none' }>
                         { terminalName }
                     </div>
                     { 
