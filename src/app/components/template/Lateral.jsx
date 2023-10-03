@@ -1,11 +1,12 @@
 import React from 'react'
+import { VERSION_PROJECT } from './templateData'
 
 const Lateral = () => {
-  const version = "v0.0.0";
+  
   
   return (
-    <div className="lateral">
-        { version }
+    <div className="lateral lateral__left">
+        { VERSION_PROJECT }
     </div>
   )
 }

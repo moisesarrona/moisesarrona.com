@@ -6,7 +6,7 @@
 
     /* fonts */
     --font_small: 11px;
-    --font_normal: 12.4px;
+    --font_normal: 12.8px;
 
     /* colors */
     --color_black: #000000;
@@ -49,6 +49,11 @@ body {
     text-transform: lowercase;
 }
 
+a {
+    color: var(--color_white);
+    text-decoration: none;
+}
+
 
 /* --- FONTS --- */
 .title {
@@ -80,15 +85,30 @@ header {
         justify-content: space-between;
 
         & .header__item {
+            position: relative;
             width: var(--h-w_base);
             display: flex;
             justify-content: center;
             align-items: center;
+        }
 
-            & a {
-                color: var(--color_white);
-                text-decoration: none;
-            }
+        & .header__item:before {
+            position: absolute;
+            bottom: 0;
+            content: "";
+            display: block;
+            width: 0;
+            height: 1px;
+            background-color: var(--color_green);
+            transition: all .3s;
+        }
+
+        & .header__item.active:before {
+            width: 100%;
+        }
+
+        & .header__item:before {
+            left: 0;
         }
     }
 }
@@ -98,15 +118,24 @@ header {
 .lateral {
     position: absolute;
     top: 0;
-    left: 0;
     width: var(--h-w_base);
     height: var(--height_total);
     z-index: 9;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+}
+
+.lateral__left {
+    left: 0;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
+}
+
+.lateral__right {
+    right: 0;
+    writing-mode: vertical-rl;
 }
 
 
@@ -115,13 +144,22 @@ header {
     position: absolute;
     top: 120px;
     left: 120px;
+    width: 300px;
     text-transform: uppercase;
     font-family: Inconsolata;
     letter-spacing: 0px;
-    z-index: 9;
+    z-index: 8;
 
-    & p:nth-child(2) {
-        padding: 0.4rem 1.4rem;
+    & .note__body {
+        padding: 0.8rem 1.6rem;
+        line-height: 1.2;
+        font-style: italic;
+    }
+
+    & .note__start {
+        color: var(--color_green);
+        font-weight: bold;
+        font-size: 1.4rem;
     }
 }
 
@@ -138,7 +176,7 @@ header {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
-    z-index: 9;
+    z-index: 8;
 
     & .terminal__content {
         display: flex;
@@ -151,7 +189,7 @@ header {
             color: var(--color_green);
         }
 
-        & div.none {
+        & .terminal__name--none {
             display: none;
         }
 
@@ -161,7 +199,7 @@ header {
             background: none;
             color: var(--color_white);
             font-family: Inconsolata;
-            font-size: var(--font_small);
+            font-size: var(--font_normal);
             letter-spacing: 1px;
         }
     }
@@ -171,7 +209,7 @@ header {
         font-weight: bold;
     }
 
-    &::before{
+    &::before {
         content: "";
         position: absolute;
         top: 0;
@@ -189,7 +227,7 @@ header {
     display: block;
     padding: 0px;
     margin: 0px;
-    padding: 0rem 1.6rem;
+    padding: 0.45rem 2rem;
 
     & li {
         padding: 0rem 0rem 0.5rem;

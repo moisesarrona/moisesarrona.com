@@ -8,7 +8,7 @@ import Terminal from "./app/components/terminal/Terminal"
 
 import Home from "./app/landing/Home"
 import About from "./app/landing/About"
-import Contact from "./app/landing/Contact"
+import Projects from "./app/landing/Projects"
 import Error from "./app/landing/Error"
 
 import "./assets/css/style.css"
@@ -17,21 +17,22 @@ function App() {
 
   return (
     <>
-        <Header />
+      <Header />
 
-        <Lateral />
+      <Lateral />
 
-        <Note />
+      <Note />
 
+      <main>
         <Routes>
-            <Route path="/" element={<Home />}/>
-            <Route path="/about" element={<About />}/>
-            <Route path="/contact" element={<Contact />}/>
-            <Route path="/*" element={<Error />}/>
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/*" element={<Error />} />
         </Routes>
+      </main>
 
-        <Terminal />
-
+      <Terminal />
     </>
   )
 }
