@@ -37,7 +37,7 @@ const Note = () => {
 
   return (
     <>
-        <div className="note">
+        <div className="note glass">
             <div className='note__header'>console.log(</div>
             <div className='note__body'>
                 <span className='note__start'>"</span> { tip } <span className='note__start'>"</span>

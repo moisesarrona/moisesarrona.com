@@ -78,6 +78,12 @@ h2 {
     margin-right: var(--h-w_base);
     margin-left: auto;
 }
+
+.glass {
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: var(--radius_normal);
+    backdrop-filter: blur(4px);
+    padding: var(--padding);
 }
 
 .grid {

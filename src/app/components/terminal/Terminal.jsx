@@ -168,7 +168,7 @@ const Terminal = () => {
   return (
     
     <>
-        <div className="terminal">
+        <div className="terminal glass">
             <TerminalInfo />
             
             <TerminalHistory 
