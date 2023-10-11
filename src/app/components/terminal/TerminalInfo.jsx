@@ -35,11 +35,11 @@ const TerminalInfo = () => {
     <div className='terminal__content'>
       <div></div>
       <div>
-        <p><span className='terminal__color'>Date:</span> { formattedDate }</p>
-        <p><span className='terminal__color'>Hour:</span> { formattedTime }</p>
-        <p><span className='terminal__color'>Browser:</span> { browserName }</p>
-        <p><span className='terminal__color'>OS:</span> { osName }</p>
-        <pre className='terminal__color'>{ banner }</pre>
+        <p><span className='terminal__color'>Date:</span> {formattedDate}</p>
+        <p><span className='terminal__color'>Hour:</span> {formattedTime}</p>
+        <p><span className='terminal__color'>Browser:</span> {browserName}</p>
+        <p><span className='terminal__color'>OS:</span> {osName}</p>
+        <pre className='terminal__color'>{banner}</pre>
       </div>
     </div>
   );

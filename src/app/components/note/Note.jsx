@@ -6,7 +6,7 @@ const Note = () => {
   const [tip, setTip] = useState('')
   const [tipIndex, setTipIndex] = useState(0)
   const path = useLocation().pathname.replace('/', '')
-  
+
   /**
    * Change text to page.
    */
@@ -25,7 +25,7 @@ const Note = () => {
    */
   const selectText = () => {
     const texts = TIPS[0][path]
-    texts.length > 0? setTip(texts[tipIndex]) : console.log('Error in select tip')
+    texts.length > 0 ? setTip(texts[tipIndex]) : console.log('Error in select tip')
   }
 
   /**
@@ -37,15 +37,15 @@ const Note = () => {
 
   return (
     <>
-        <div className="note glass">
-            <div className='note__header'>console.log(</div>
-            <div className='note__body'>
-                <span className='note__start'>"</span> { tip } <span className='note__start'>"</span>
-            </div>
-            <div className='note__footer'>
-              );
-            </div>
+      <div className="note glass">
+        <div className='note__header'>console.log(</div>
+        <div className='note__body'>
+          <span className='note__start'>"</span> {tip} <span className='note__start'>"</span>
         </div>
+        <div className='note__footer'>
+          );
+        </div>
+      </div>
     </>
   )
 }

@@ -32,7 +32,7 @@ const Terminal = () => {
       const firstWord = inputWords[0];
       const secondWord = inputWords[1];
       const isWord = COMMANDS.includes(firstWord);
-      isWord? executeCommand(firstWord, secondWord) : msgError(firstWord, 'it is not a command');
+      isWord ? executeCommand(firstWord, secondWord) : msgError(firstWord, 'it is not a command');
     }
   }
 
@@ -58,7 +58,7 @@ const Terminal = () => {
       case 'clear':
         clear()
         break;
-    
+
       default:
         msgError(firstWord, 'it is not a command')
         break;
@@ -71,15 +71,17 @@ const Terminal = () => {
    */
   const ls = (secondWord) => {
     if (secondWord === undefined)
-      SECTIONS.forEach((SECTION) => {
-        if (SECTION[active]) {    
+      SECTIONS
+      .filter(item => item.active == true)
+      .forEach((SECTION) => {
+        if (SECTION[active]) {
           const files = SECTION[active].files;
           const folders = SECTION[active].folders;
           const all = [...files, ...folders];
           setHistory((prevHistory) => [...prevHistory, all]);
         }
       });
-    else 
+    else
       msgError(secondWord, 'it is not a attribute')
   }
 
@@ -103,11 +105,11 @@ const Terminal = () => {
       return
     }
 
-    const msg = isCat? 'it is not a file' : 'it is not a foler'
+    const msg = isCat ? 'it is not a file' : 'it is not a foler'
 
     SECTIONS.forEach((section) => {
       if (section[active]) {
-        const target = isFile? section[active].files : section[active].folders
+        const target = isFile ? section[active].files : section[active].folders
         if (target.includes(secondWord)) {
           if (isCat && isFile) {
             openFile(secondWord)
@@ -149,11 +151,11 @@ const Terminal = () => {
    */
   const openFile = (file) => {
     const matchingContent = CONTENTS.find((contentItem) => contentItem[active]);
-  
+
     if (matchingContent) {
       const activeContent = matchingContent[active];
       const content = activeContent.find((item) => item[file.split('.')[0]] !== undefined);
-      
+
       if (content) {
         const contentValue = content[file.split('.')[0]];
         setHistory((prevHistory) => [...prevHistory, contentValue]);
@@ -164,23 +166,23 @@ const Terminal = () => {
       msgError(file, 'Error in show content');
     }
   }
-  
-  return (
-    
-    <>
-        <div className="terminal glass">
-            <TerminalInfo />
-            
-            <TerminalHistory 
-              history={ history } 
-              terminalName={ TERMINAL_NAME } />
 
-            <TerminalInput
-              terminalName={TERMINAL_NAME }
-              input={ input}
-              setInput={ setInput }
-              inputSend={ inputSend } />
-        </div>
+  return (
+
+    <>
+      <div className="terminal glass">
+        <TerminalInfo />
+
+        <TerminalHistory
+          history={history}
+          terminalName={TERMINAL_NAME} />
+
+        <TerminalInput
+          terminalName={TERMINAL_NAME}
+          input={input}
+          setInput={setInput}
+          inputSend={inputSend} />
+      </div>
     </>
   )
 }

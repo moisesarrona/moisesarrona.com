@@ -11,17 +11,20 @@ export const SECTIONS = [
     home: {
       id: 1,
       files: ['readme.txt'],
-      folders: ['about', 'projects']
+      folders: ['about', 'projects'],
+      active: true
     },
     about: {
       id: 2,
       files: ['readme.txt', 'skills.txt'],
-      folders: []
+      folders: [],
+      active: true
     },
     projects: {
       id: 3,
       files: ['readme.txt', 'projects.txt'],
-      folders: []
+      folders: [],
+      active: true
     }
   }
 ]

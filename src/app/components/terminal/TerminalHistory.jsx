@@ -1,6 +1,6 @@
 import React from 'react'
-import { faFile, faFolder } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFile, faFolder } from '@fortawesome/free-regular-svg-icons';
 
 const TerminalHistory = ({ history, terminalName }) => {
 
@@ -11,7 +11,7 @@ const TerminalHistory = ({ history, terminalName }) => {
    */
   const validArray = (item) => {
     let isArray = Array.isArray(item);
-    return isArray? true : false
+    return isArray ? true : false
   }
 
   /**
@@ -24,44 +24,44 @@ const TerminalHistory = ({ history, terminalName }) => {
       return false
     if (item.includes('~'))
       return true
-    else 
+    else
       return false
   }
 
   return (
     <>
-        {
-            history.map((item, index) => {
+      {
+        history.map((item, index) => {
 
-              const isArray = validArray(item)
-              const isCommand = validCommand(item)
+          const isArray = validArray(item)
+          const isCommand = validCommand(item)
 
-              return (
-                <div className="terminal__content" key={ index }>
-                    <div className={ isCommand? 'terminal__name' : 'terminal__name--none' }>
-                        { terminalName }
-                    </div>
-                    { 
-                      !isArray? 
-                      ( <div>{ item.replace('~', '') }</div>) : 
-                      (
-                        <ul className='terminal__list'>
-                          { 
-                            item.map((subItem, subIndex) => (
-                              <li key={ subIndex }>
-                                  <FontAwesomeIcon 
-                                    icon={ subItem.includes(".txt")? faFile : faFolder } 
-                                    className='icon'/> { subItem } { !subItem.includes(".txt")? '/' : '' }
-                              </li>
-                            ))
-                          }
-                        </ul>
-                      )
-                    }
-                </div>
-              )
-            })
-        }
+          return (
+            <div className="terminal__content" key={index}>
+              <div className={isCommand ? 'terminal__name' : 'terminal__name--none'}>
+                {terminalName}
+              </div>
+              {
+                !isArray ?
+                  (<div>{item.replace('~', '')}</div>) :
+                  (
+                    <ul className='terminal__list'>
+                      {
+                        item.map((subItem, subIndex) => (
+                          <li key={subIndex}>
+                            <FontAwesomeIcon
+                              icon={subItem.includes(".txt") ? faFile : faFolder}
+                              className='icon' /> {subItem} {!subItem.includes(".txt") ? '/' : ''}
+                          </li>
+                        ))
+                      }
+                    </ul>
+                  )
+              }
+            </div>
+          )
+        })
+      }
     </>
   )
 }
