@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { ITEM_PAGES } from './templateData'
+import { ITEM_PAGES } from '../../core/data/templateData'
 
 const Header = () => {
   return (

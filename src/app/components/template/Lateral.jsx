@@ -1,5 +1,5 @@
 import React from 'react'
-import { VERSION_PROJECT } from './templateData'
+import { VERSION_PROJECT } from '../../core/data/templateData'
 
 const Lateral = () => {
 

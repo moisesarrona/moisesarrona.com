@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { TIPS } from './noteData'
+import { TIPS } from '../../core/data/noteData'
 
 const Note = () => {
   const [tip, setTip] = useState('')

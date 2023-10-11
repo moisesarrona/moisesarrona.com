@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { COMMANDS, SECTIONS, TERMINAL_NAME, CONTENTS } from './terminalData'
+import { COMMANDS, SECTIONS, TERMINAL_NAME, CONTENTS } from '../../core/data/terminalData'
 import TerminalInput from './TerminalInput';
 import TerminalHistory from './TerminalHistory';
 import TerminalInfo from './TerminalInfo'
