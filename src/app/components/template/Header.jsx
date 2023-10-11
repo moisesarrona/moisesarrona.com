@@ -12,9 +12,9 @@ const Header = () => {
               .filter(item => item.active == true)
               .map((item, index) => {
                 return (
-                  <NavLink key={index} to={item.link} 
-                    className={`header__item ${({isActive}) => { return isActive? "active" : '' }}`}>
-                      {item.name}
+                  <NavLink key={index} to={item.link}
+                    className={`header__item ${({ isActive }) => { return isActive ? "active" : '' }}`}>
+                    {item.name}
                   </NavLink>
                 )
               })

@@ -5,9 +5,9 @@
     --h-w_base: 100px;
 
     /* fonts */
-    --font_small: 0.7rem;
-    --font_normal: 0.83rem;
-    --font_big: 1.2rem;
+    --font_small: 0.765rem;
+    --font_normal: 0.845rem;
+    --font_big: 1.25rem;
 
     /* colors */
     --color_black: #000000;
@@ -82,7 +82,7 @@ h2 {
 }
 
 article {
-    margin-bottom: 4.8rem;
+    margin-bottom: 6.5rem;
 
     & p {
         margin-bottom: 1.4rem;
@@ -98,16 +98,8 @@ article {
 
 }
 
-.content__about {
-    position: relative;
-    width: 55vw;
-    margin-top: calc(var(--h-w_base) * 3);
-    margin-right: var(--h-w_base);
-    margin-left: auto;
-}
-
 .glass {
-    background-color: rgba(0, 0, 0, .1);
+    background-color: rgba(0, 0, 0, .2);
     border-radius: var(--radius_normal);
     backdrop-filter: blur(4px);
     padding: var(--padding);
@@ -136,6 +128,10 @@ article {
 
     & .col--right {
         grid-column: 4/2;
+    }
+
+    & .col--center {
+        grid-column: 2/3;
     }
 }
 
@@ -218,7 +214,7 @@ header {
     position: fixed;
     top: 120px;
     left: 120px;
-    width: 300px;
+    width: 280px;
     text-transform: lowercase;
     font-family: Inconsolata;
     letter-spacing: 0px;
@@ -243,11 +239,11 @@ header {
     position: fixed;
     bottom: 50px;
     right: 50px;
-    width: 330px;
+    width: 320px;
     height: 300px;
     overflow: hidden;
     font-family: Inconsolata !important;
-    font-size: var(--font_normal) !important;
+    font-size: var(--font_small) !important;
     letter-spacing: 1px !important;
     text-transform: lowercase;
     line-height: normal;
@@ -374,6 +370,7 @@ header {
         left: 0;
         writing-mode: vertical-rl;
         transform: rotate(180deg);
+        font-family: Inconsolata;
         font-size: var(--font_small);
         border-left: 1px solid var(--color_green);
         padding-left: var(--padding);
@@ -415,6 +412,35 @@ header {
 }
 
 
+/* --- ABOUT --- */
+.content__about {
+    position: relative;
+    width: 60vw;
+    margin-top: calc(var(--h-w_base) * 3);
+    margin-right: var(--h-w_base);
+    margin-left: auto;
+}
+
+.contact__profile {
+    text-align: center;
+
+    & .contact__img {
+        width: 230px;
+        border-radius: 100%;
+    }
+
+    & .contact_link {
+        display: block;
+        margin: var(--padding);
+    }
+}
+
+.contact__social {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /* --- TEMPS --- */
 .img {
     position: absolute;
@@ -429,4 +455,3 @@ header {
         width: 100%;
     }
 }
-
