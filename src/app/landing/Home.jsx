@@ -1,17 +1,15 @@
 import React from 'react'
-import img from '../../assets/img/moy.png'
 
 const Home = () => {
   return (
     <>
       <section>
-        <div className='home__title'>
-          <h1>hey</h1>
+        <div className='home__welcome'>
+          <div className='spetial__content neon'>
+            <h1 className='spetial__title neon__fluid'><span className='spetial__letter'>W</span>elcome</h1>
+            <span className='spetial__subtitle'>to my portfolio</span>
+          </div>
         </div>
-
-        <div className='img'>
-                <img src={img} alt="" />
-            </div>
       </section>
     </>
   )

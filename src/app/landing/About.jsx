@@ -10,7 +10,9 @@ const About = () => {
     <section>
       <div className='content__about'>
         <article>
-          <h1>Who I am?</h1>
+          <div className='spetial__content neon'>
+            <h1 className='spetial__title'><span className='spetial__letter neon__fluid'>W</span>ho I'm?</h1>
+          </div>
 
           {
             INFO.map((item, index) => {
@@ -49,7 +51,7 @@ const About = () => {
             {
               STUDIES.reverse().map((item, index) => {
                 return (
-                  <div className='card col--2' key={index}>
+                  <div className='card col__2' key={index}>
                     <div className='card__body'>
                       <div className='card__title'>{item.title}</div>
                       <div className='card__subtitle'>{item.academy}</div>
@@ -66,25 +68,25 @@ const About = () => {
           <h2>Do you like contact me?</h2>
 
           <div className="grid">
-            <div className="col--left">
+            <div className="col__left">
               <div className="grid">
-                <div className='contact__profile col--2'>
+                <div className='contact__profile col__2'>
                   <img src={img} className='contact__img' alt="i'm moy" />
                   <a href='https://github.com/moisesarrona'
                     target='_blank'
                     className='contact_link'>@moisesarrona</a>
                 </div>
 
-                <div className="contact__social col--1">
+                <div className="contact__social col__1">
                   {
                     CONTACT
                       .filter(item => item.name !== 'github')
                       .map((item, index) => {
-                        
-                        const resolvedIcon = item.name === "instagram" ? faInstagram : 
-                        item.name === "linkedin" ? faLinkedinIn : 
-                        item.name === "correo"? faEnvelope : null;
-                        const typeLink = item.name === "correo"? "mailto:" : ""
+
+                        const resolvedIcon = item.name === "instagram" ? faInstagram :
+                          item.name === "linkedin" ? faLinkedinIn :
+                            item.name === "correo" ? faEnvelope : null;
+                        const typeLink = item.name === "correo" ? "mailto:" : ""
 
                         return (
                           <div className='card' key={index}>
