@@ -7,7 +7,7 @@ import TerminalInfo from './TerminalInfo'
 const Terminal = () => {
   const [input, setInput] = useState('')
   const [history, setHistory] = useState([])
-  const [active, setActive] = useState('home')
+  const [activeFolder, setActiveFolder] = useState('home')
 
   /**
    * Get input event
@@ -72,11 +72,10 @@ const Terminal = () => {
   const ls = (secondWord) => {
     if (secondWord === undefined)
       SECTIONS
-      .filter(item => item.active == true)
       .forEach((SECTION) => {
-        if (SECTION[active]) {
-          const files = SECTION[active].files;
-          const folders = SECTION[active].folders;
+        if (SECTION[activeFolder]) {
+          const files = SECTION[activeFolder].files;
+          const folders = SECTION[activeFolder].folders;
           const all = [...files, ...folders];
           setHistory((prevHistory) => [...prevHistory, all]);
         }
@@ -101,21 +100,21 @@ const Terminal = () => {
     const isFile = secondWord.includes('.txt')
 
     if (isCd && secondWord === '...') {
-      setActive('home')
+      setActiveFolder('home')
       return
     }
 
     const msg = isCat ? 'it is not a file' : 'it is not a foler'
 
     SECTIONS.forEach((section) => {
-      if (section[active]) {
-        const target = isFile ? section[active].files : section[active].folders
+      if (section[activeFolder]) {
+        const target = isFile ? section[activeFolder].files : section[activeFolder].folders
         if (target.includes(secondWord)) {
           if (isCat && isFile) {
             openFile(secondWord)
 
           } else if (isCd && !isFile) {
-            setActive(secondWord)
+            setActiveFolder(secondWord)
 
           } else {
             msgError(secondWord, msg)
@@ -150,10 +149,10 @@ const Terminal = () => {
    * @param {string} file 
    */
   const openFile = (file) => {
-    const matchingContent = CONTENTS.find((contentItem) => contentItem[active]);
+    const matchingContent = CONTENTS.find((contentItem) => contentItem[activeFolder]);
 
     if (matchingContent) {
-      const activeContent = matchingContent[active];
+      const activeContent = matchingContent[activeFolder];
       const content = activeContent.find((item) => item[file.split('.')[0]] !== undefined);
 
       if (content) {
@@ -168,7 +167,6 @@ const Terminal = () => {
   }
 
   return (
-
     <>
       <div className="terminal glass">
         <TerminalInfo />
