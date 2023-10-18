@@ -19,6 +19,26 @@
     --radius_normal: 0.85rem;
     --size_top: 0.65rem 0rem;
     --size-spacing: 0.65rem;
+    --text_shadow:
+        0 0 10px rgba(0, 0, 0, 0.2),
+        0 0 20px rgba(255, 255, 255, 0.8),
+        0 0 30px #288B7C,
+        0 0 40px #288B7C,
+        0 0 70px #288B7C,
+        0 0 80px #288B7C,
+        0 0 100px #288B7C;
+    --text_shadow_exp:
+        0 0 12px rgba(0, 0, 0, 0.2),
+        0 0 22px rgba(255, 255, 255, 0.8),
+        0 0 32px #288B7C,
+        0 0 42px #288B7C,
+        0 0 74px #288B7C,
+        0 0 84px #288B7C,
+        0 0 104px #288B7C;
+
+    --aimation_neon_pulse: neon__pulsate 0.4s ease-in-out infinite alternate;
+    --animation_neon_flicker: neon__flicker 1.5s infinite alternate;
+    --animation_neon_fail: letter__fail 1s forwards;
 }
 
 
@@ -75,13 +95,15 @@ body {
     }
 
     & h1 {
-        font-size: 3.8rem;
+        font-size: 3.6rem;
         margin-bottom: 1.4rem;
+        font-weight: 100;
     }
 
     & h2 {
-        font-size: 2.2rem;
+        font-size: 2.25rem;
         margin-bottom: 1.4rem;
+        font-weight: 100;
     }
 
     & article {
@@ -174,7 +196,7 @@ header {
     position: fixed;
     top: 120px;
     left: 120px;
-    width: 280px;
+    width: 260px;
     text-transform: lowercase;
     font-family: Inconsolata;
     letter-spacing: 0;
@@ -197,9 +219,9 @@ header {
 /* --- TERMINAL --- */
 .terminal {
     position: fixed;
-    bottom: 50px;
-    right: 50px;
-    width: 320px;
+    bottom: 30px;
+    right: 30px;
+    width: 330px;
     height: 300px;
     overflow: hidden;
     font-family: Inconsolata;
@@ -285,8 +307,15 @@ header {
 /* --- HOME --- */
 .home__welcome {
     position: absolute;
-    left: 20px;
-    bottom: 20px;
+    left: 30px;
+    bottom: 30px;
+
+    & .spetial__title {
+        color: var(--color_dark);
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: rgba(40, 139, 124, 0.3);
+        cursor: pointer;
+    }
 }
 
 
@@ -367,8 +396,10 @@ header {
 
     & .error__title {
         font-size: 14rem;
-        letter-spacing: 2.4rem;
-        animation: neon__pulsate 0.2s ease-in-out infinite alternate;
+        font-weight: 100;
+        font-style: italic;
+        letter-spacing: 1rem;
+        animation: var(--aimation_neon_pulse);
 
         & .error__letter__none {
             color: transparent;
@@ -379,8 +410,9 @@ header {
             position: absolute;
             right: 0;
             top: 0;
-            animation: letter__fail 1s forwards, 
-            neon__error 1.5s infinite alternate;
+            animation: var(--animation_neon_fail),
+                var(--animation_neon_flicker);
+            animation-delay: 1s;
         }
     }
 
@@ -394,7 +426,7 @@ header {
 /* --- UTILITIES --- */
 .spetial__content {
     & .spetial__title {
-        font-size: 6.5vw;
+        font-size: 6vw;
         margin-bottom: 0px;
 
         & .spetial__letter {
@@ -485,51 +517,26 @@ header {
     }
 }
 
-.neon{
-    & .neon__fluid {
-        color: var(--color_white);
-        animation: neon__pulsate 0.2s ease-in-out infinite alternate;
-    }
-
-    & .neon__hover {
-        transition: all 200ms cubic-bezier(.39, .79, .81, .78); 
-        color: var(--color_dark);
-        
-        &:hover {
-            animation: neon__pulsate 0.2s ease-in-out infinite alternate;
-            color: var(--color_white);
-            letter-spacing: 0.4rem; 
-        }
-    }
+.neon__flicker {
+    color: var(--color_white);
+    text-shadow: var(--text_shadow);
+    animation: var(--animation_neon_flicker);
 }
 
 
 /* -- ANIMATIONS ---*/
 @keyframes neon__pulsate {
     100% {
-        text-shadow:
-            0 0 12px rgba(255, 255, 255, 0.6),
-            0 0 22px rgba(255, 255, 255, 0.6),
-            0 0 32px #288B7C,
-            0 0 42px #288B7C,
-            0 0 74px #288B7C,
-            0 0 84px #288B7C,
-            0 0 104px #288B7C;
+        text-shadow: var(--text_shadow_exp);
     }
 
     0% {
-        text-shadow:
-            0 0 10px rgba(255, 255, 255, 0.8),
-            0 0 20px rgba(255, 255, 255, 0.8),
-            0 0 30px #288B7C,
-            0 0 40px #288B7C,
-            0 0 70px #288B7C,
-            0 0 80px #288B7C,
-            0 0 100px #288B7C;
+        text-shadow: var(--text_shadow);
     }
 }
 
-@keyframes neon__error {
+@keyframes neon__flicker {
+
     0%,
     18%,
     22%,
@@ -537,17 +544,10 @@ header {
     53%,
     57%,
     100% {
-        text-shadow:
-            0 0 10px rgba(255, 255, 255, 0.8),
-            0 0 20px rgba(255, 255, 255, 0.8),
-            0 0 30px #288B7C,
-            0 0 40px #288B7C,
-            0 0 70px #288B7C,
-            0 0 80px #288B7C,
-            0 0 100px #288B7C;
+        text-shadow: var(--text_shadow);
     }
 
-    
+
     20%,
     24%,
     55% {
@@ -556,44 +556,29 @@ header {
 }
 
 @keyframes letter__fail {
-    0%, 10% {
+
+    0%,
+    10% {
         transform: rotate(0deg) translateX(0) translateY(0);
     }
+
     50% {
         transform: rotate(80deg) translateX(0) translateY(80px);
     }
+
     75% {
         transform: rotate(40deg) translateX(0) translateY(40px);
     }
+
     100% {
         transform: rotate(60deg) translateX(0) translateY(60px);
     }
+
     110% {
         transform: rotate(0deg) translateX(0) translateY(60px);
     }
+
     120% {
         transform: rotate(0deg) translateX(0) translateY(0);
     }
 }
-
-
-
-
-/* .neon:hover  {
-        transition: all 200ms cubic-bezier(.39, .79, .81, .78); 
-        animation: neon__pulsate 0.11s ease-in-out infinite alternate;
-        & .spetial__letter {
-            animation: neon__error 1.5s  infinite alternate;
-        }
-
-        & .spetial__title {
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
-            0 0 20px rgba(255, 255, 255, 0.8),
-            0 0 30px #288B7C, 
-            0 0 40px #288B7C, 
-            0 0 70px #288B7C,
-            0 0 80px #288B7C, 
-            0 0 100px #288B7C;  
-            letter-spacing: 0.4rem;     
-        }
-    } */
