@@ -1,4 +1,4 @@
-export const INFO = [
+export const ABOUT = [
     "My name is Moises Arrona I'm Software Engineer and Software Architect and I worked with any lenguages I know about BackEnd and FrontEnd, I currently live in Mexico and I work as an Software Architect",
     "I like to learn about technology, programming lenguages, software architects, technology tools and I create projects open source as a hobby, well I also like to play guitar.",
     "I worked at Werkn as a Frontend Developer, Grupo Castores as a Software Engineer, currently working at Flecha Amarilla as a Software Architect. My activities at GFA are: proposing technological solutions, architectural solutions to migrate systems and for new developments. Create and Propose guidelines, design patterns, standards. Provide research and technical training. Develop proofs of concept."

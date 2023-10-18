@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram, faLinkedinIn, faCodepen } from '@fortawesome/free-brands-svg-icons'
 import img from '../../assets/img/me.png'
-import { INFO, SKILLS, STUDIES, CONTACT } from '../core/data/aboutData'
+import { ABOUT, SKILLS, STUDIES, CONTACT } from '../core/data/aboutData'
 
 const About = () => {
   return (
@@ -15,7 +15,7 @@ const About = () => {
           </div>
 
           {
-            INFO.map((item, index) => {
+            ABOUT.map((item, index) => {
               return (
                 <p key={index}>{item}</p>
               )

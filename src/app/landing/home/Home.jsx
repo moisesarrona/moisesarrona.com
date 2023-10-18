@@ -1,9 +1,9 @@
 import React from 'react'
 import HomeLetters from './HomeLetters'
-import { welcomeData } from '../../core/data/homeData'
+import { WELCOME_DATA } from '../../core/data/homeData'
 
 const Home = () => {
-  const titleWords = welcomeData.title.split('');
+  const titleWords = WELCOME_DATA.title.split('');
 
   /**
    * Generate random number
@@ -31,7 +31,7 @@ const Home = () => {
                 })
               }
             </h1>
-            <span className='spetial__subtitle'>{welcomeData.subtitle}</span>
+            <span className='spetial__subtitle'>{WELCOME_DATA.subtitle}</span>
           </div>
         </div>
       </section>
