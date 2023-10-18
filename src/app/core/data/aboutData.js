@@ -7,31 +7,31 @@ export const INFO = [
 export const SKILLS = [
     {
         name: "Java / SpringBoot",
-        percennt: "90%"
+        percent: "90%"
     },
     {
         name: "C# / .ASP.NET",
-        percennt: "50%"
+        percent: "50%"
     },
     {
         name: "PHP / Laravel",
-        percennt: "95%"
+        percent: "95%"
     },
     {
         name: "React",
-        percennt: "60%"
+        percent: "60%"
     },
     {
         name: "Angular",
-        percennt: "90%"
+        percent: "90%"
     },
     {
         name: "Git / GitHub",
-        percennt: "90%"
+        percent: "90%"
     },
     {
         name: "SQLServer / MySql",
-        percennt: "80%"
+        percent: "80%"
     }
 ]
 
@@ -39,14 +39,12 @@ export const STUDIES = [
     {
         id: 1,
         academy: "Universidad Tecnológica de León",
-        // period: "Sept 2016 - Ago 2018",
         period: "2016 - 2018",
         title: "TSU en Multimedia y Comercio Electrónico"
     },
     {
         id: 2,
         academy: "Universidad Tecnológica de León",
-        // period: "Sept 2018 - Abr 2020",
         period: "2018 - 2020",
         title: "Ingeniería en Tecnologías de la Información"
     },
@@ -60,22 +58,28 @@ export const CONTACT = [
         active: true
     },
     {
-        id: 1,
+        id: 2,
         name: "linkedin",
         link: "https://www.linkedin.com/in/moisesarrona/",
         active: true
     },
     {
-        id: 1,
+        id: 3,
         name: "github",
         link: "https://github.com/moisesarrona",
         icon: "",
         active: true
     },
     {
-        id: 1,
+        id: 4,
         name: "correo",
         link: "arronamoisesar@gmail.com",
+        active: true
+    },
+    {
+        id: 5,
+        name: "codepen",
+        link: "https://codepen.io/moisesarrona",
         active: true
     }
 ]

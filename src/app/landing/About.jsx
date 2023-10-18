@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import { faInstagram, faLinkedinIn, faCodepen } from '@fortawesome/free-brands-svg-icons'
 import img from '../../assets/img/me.png'
 import { INFO, SKILLS, STUDIES, CONTACT } from '../core/data/aboutData'
 
@@ -10,8 +10,8 @@ const About = () => {
     <section>
       <div className='content__about'>
         <article>
-          <div className='spetial__content neon'>
-            <h1 className='spetial__title'><span className='spetial__letter neon__fluid'>W</span>ho I'm?</h1>
+          <div className='spetial__content'>
+            <h1 className='spetial__title'><span className='spetial__letter neon'>W</span>ho I'm?</h1>
           </div>
 
           {
@@ -33,8 +33,8 @@ const About = () => {
                   <div className='skill' key={index}>
                     <div className='skill__name'>{item.name}</div>
                     <div className='skill__line'>
-                      <div className='skill__color' style={{ width: item.percennt }}>
-                        <span className='skill__percent'>{item.percennt}</span>
+                      <div className='skill__color' style={{ width: item.percent }}>
+                        <span className='skill__percent'>{item.percent}</span>
                       </div>
                     </div>
                   </div>
@@ -85,7 +85,8 @@ const About = () => {
 
                         const resolvedIcon = item.name === "instagram" ? faInstagram :
                           item.name === "linkedin" ? faLinkedinIn :
-                            item.name === "correo" ? faEnvelope : null;
+                            item.name === "correo" ? faEnvelope : 
+                            item.name === "codepen"? faCodepen : null;
                         const typeLink = item.name === "correo" ? "mailto:" : ""
 
                         return (

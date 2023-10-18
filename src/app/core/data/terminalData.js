@@ -54,7 +54,7 @@ export const CONTENTS = [
         projects: "Arron EDI," +
           "\nArron Privacy," +
           "\nmoisesarrona.com," +
-          ".\nbrisApp"
+          ".\nBrisApp"
       }
     ]
   }
