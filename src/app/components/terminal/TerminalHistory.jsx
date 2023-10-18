@@ -47,11 +47,11 @@ const TerminalHistory = ({ history, terminalName }) => {
                   (
                     <ul className='terminal__list'>
                       {
-                        item.map((subItem, subIndex) => (
-                          <li key={subIndex}>
+                        item.map((content, contentIndex) => (
+                          <li key={contentIndex}>
                             <FontAwesomeIcon
-                              icon={subItem.includes(".txt") ? faFile : faFolder}
-                              className='icon' /> {subItem} {!subItem.includes(".txt") ? '/' : ''}
+                              icon={content.includes(".txt") ? faFile : faFolder}
+                              className='icon' /> {content} {!content.includes(".txt") ? '/' : ''}
                           </li>
                         ))
                       }

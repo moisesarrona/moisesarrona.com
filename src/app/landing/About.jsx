@@ -15,9 +15,9 @@ const About = () => {
           </div>
 
           {
-            ABOUT.map((item, index) => {
+            ABOUT.map((text, index) => {
               return (
-                <p key={index}>{item}</p>
+                <p key={index}>{text}</p>
               )
             })
           }
@@ -28,13 +28,13 @@ const About = () => {
 
           <div className='grid'>
             {
-              SKILLS.map((item, index) => {
+              SKILLS.map((skill, index) => {
                 return (
                   <div className='skill' key={index}>
-                    <div className='skill__name'>{item.name}</div>
+                    <div className='skill__name'>{skill.name}</div>
                     <div className='skill__line'>
-                      <div className='skill__color' style={{ width: item.percent }}>
-                        <span className='skill__percent'>{item.percent}</span>
+                      <div className='skill__color' style={{ width: skill.percent }}>
+                        <span className='skill__percent'>{skill.percent}</span>
                       </div>
                     </div>
                   </div>
@@ -49,14 +49,14 @@ const About = () => {
 
           <div className="grid">
             {
-              STUDIES.reverse().map((item, index) => {
+              STUDIES.reverse().map((studie, index) => {
                 return (
                   <div className='card col__2' key={index}>
                     <div className='card__body'>
-                      <div className='card__title'>{item.title}</div>
-                      <div className='card__subtitle'>{item.academy}</div>
+                      <div className='card__title'>{studie.title}</div>
+                      <div className='card__subtitle'>{studie.academy}</div>
                     </div>
-                    <div className='card__banner'>{item.period}</div>
+                    <div className='card__banner'>{studie.period}</div>
                   </div>
                 )
               })
@@ -80,20 +80,20 @@ const About = () => {
                 <div className="contact__social col__1">
                   {
                     CONTACT
-                      .filter(item => item.name !== 'github')
-                      .map((item, index) => {
+                      .filter(link => link.name !== 'github')
+                      .map((link, index) => {
 
-                        const resolvedIcon = item.name === "instagram" ? faInstagram :
-                          item.name === "linkedin" ? faLinkedinIn :
-                            item.name === "correo" ? faEnvelope : 
-                            item.name === "codepen"? faCodepen : null;
-                        const typeLink = item.name === "correo" ? "mailto:" : ""
+                        const resolvedIcon = link.name === "instagram" ? faInstagram :
+                          link.name === "linkedin" ? faLinkedinIn :
+                            link.name === "correo" ? faEnvelope : 
+                            link.name === "codepen"? faCodepen : null;
+                        const typeLink = link.name === "correo" ? "mailto:" : ""
 
                         return (
                           <div className='card' key={index}>
                             <div className="card__body">
                               <div className='card__title'>
-                                <a href={typeLink + item.link} target="_blank" rel="noopener noreferrer">
+                                <a href={typeLink + link.link} target="_blank" rel="noopener noreferrer">
                                   <FontAwesomeIcon icon={resolvedIcon} />
                                 </a>
                                 <a href="mailto:"></a>

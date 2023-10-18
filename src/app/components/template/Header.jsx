@@ -9,12 +9,12 @@ const Header = () => {
         <div className="header__content">
           {
             ITEM_PAGES
-              .filter(item => item.active == true)
-              .map((item, index) => {
+              .filter(pages => pages.active == true)
+              .map((pages, index) => {
                 return (
-                  <NavLink key={index} to={item.link}
+                  <NavLink key={index} to={pages.link}
                     className={`header__item ${({ isActive }) => { return isActive ? "active" : '' }}`}>
-                    {item.name}
+                    {pages.name}
                   </NavLink>
                 )
               })
