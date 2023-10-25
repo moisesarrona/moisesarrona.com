@@ -428,6 +428,94 @@ header {
 }
 
 
+/* --- PROJECT --- */
+.content__projects {
+    position: relative;
+    width: 60vw;
+    margin-left: calc(var(--h-w_base) * 1.2) ;
+    margin-top: calc(var(--h-w_base) * 3);
+}
+
+.project {
+    position: relative;
+    height: 65vh;
+    margin-bottom: 10rem;
+    transition: var(--transition);
+
+    & .project__image {
+        width: 100%;
+        height: 100%;
+        text-transform: lowercase;
+        position: relative;
+        z-index: 1;
+        letter-spacing: 0.15rem;
+        transition: var(--transition);
+
+        & .project__date {
+            position: absolute;
+            bottom: 0;
+            left: -20px;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-family: 'Inconsolata';
+        }
+
+        & .project__client {
+            position: absolute;
+            right: -20px;
+            top: 0;
+            writing-mode: vertical-lr;
+            font-family: 'Inconsolata';
+        }
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .4);
+            backdrop-filter: blur(3px);
+            transition: var(--transition);
+        }
+    }
+
+    & .project__text {
+        position: absolute;
+        right: -80px;
+        bottom: -50px;
+        text-align: end;
+
+        & .spetial__title.stroke{
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: transparent;
+            -webkit-text-stroke: 1px white;
+            z-index: 2;
+        }
+
+        & .project__type {
+            letter-spacing: var(--size-spacing);
+        }
+
+    }
+
+    &:hover .project__image::before {
+        backdrop-filter: blur(0px);
+    }
+
+    &:hover .project__image {
+        transform: scale(1.03);
+    }
+}
+
+
 /* --- UTILITIES --- */
 .spetial__content {
     & .spetial__title {
@@ -436,9 +524,9 @@ header {
 
         & .spetial__letter {
             font-family: 'Autograf';
-            font-size: 12vw;
+            font-size: 12.5vw;
             position: relative;
-            z-index: 1;
+            /* z-index: 1; */
         }
     }
 
@@ -482,7 +570,7 @@ header {
 }
 
 .glass {
-    background-color: rgba(0, 0, 0, .2);
+    background-color: var(--color_black_rgba);
     border-radius: var(--radius_normal);
     backdrop-filter: blur(4px);
     padding: var(--size-spacing);
