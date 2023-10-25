@@ -400,7 +400,7 @@ header {
     text-align: center;
 
     & .error__title {
-        font-size: 14rem;
+        font-size: 20vw;
         font-weight: 100;
         font-style: italic;
         letter-spacing: 1rem;
@@ -512,6 +512,41 @@ header {
 
     &:hover .project__image {
         transform: scale(1.03);
+    }
+}
+
+.option__content {
+    position: fixed;
+    left: calc(var(--h-w_base) * 1.2);
+    bottom: 0;
+    z-index: 3;
+    font-family: Inconsolata;
+    font-size: var(--font_small);
+    text-transform: lowercase;
+    display: flex;
+
+    & .option__box {
+        width: calc(var(--h-w_base) + 10px);
+        height: calc(var(--h-w_base) - 45px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+        border: 1px solid rgba(40, 139, 124, 0.4);
+        background: var(--color_black_rgba);
+        backdrop-filter: blur(4px);
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    & .option__radio {
+        display: none;
+
+        &:checked + .option__box {
+            width: calc(var(--h-w_base) + 30px);
+            background-color: var(--color_green_rgba);
+        } 
     }
 }
 
