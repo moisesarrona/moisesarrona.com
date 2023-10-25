@@ -14,31 +14,36 @@
     --color_white: #ffffff;
     --color_dark: #161616;
     --color_green: #288b7c;
+    --color_black_rgba: rgba(0, 0, 0, 0.25);
+    --color_green_rgba: rgba(40, 139, 124, 0.25);
 
     /* utilities */
     --radius_normal: 0.85rem;
     --size_top: 0.65rem 0rem;
-    --size-spacing: 0.65rem;
+    --size-spacing: 0.7rem;
     --text_shadow:
-        0 0 10px rgba(0, 0, 0, 0.2),
+        0 0 10px var(--color_black_rgba),
         0 0 20px rgba(255, 255, 255, 0.8),
-        0 0 30px #288B7C,
-        0 0 40px #288B7C,
-        0 0 70px #288B7C,
-        0 0 80px #288B7C,
-        0 0 100px #288B7C;
+        0 0 30px var(--color_green),
+        0 0 40px var(--color_green),
+        0 0 70px var(--color_green),
+        0 0 80px var(--color_green),
+        0 0 100px var(--color_green);
     --text_shadow_exp:
-        0 0 12px rgba(0, 0, 0, 0.2),
+        0 0 12px var(--color_black_rgba),
         0 0 22px rgba(255, 255, 255, 0.8),
-        0 0 32px #288B7C,
-        0 0 42px #288B7C,
-        0 0 74px #288B7C,
-        0 0 84px #288B7C,
-        0 0 104px #288B7C;
+        0 0 32px var(--color_green),
+        0 0 42px var(--color_green),
+        0 0 74px var(--color_green),
+        0 0 84px var(--color_green),
+        0 0 104px var(--color_green);
 
+    /* animations and transitions */
     --aimation_neon_pulse: neon__pulsate 0.4s ease-in-out infinite alternate;
     --animation_neon_flicker: neon__flicker 1.5s infinite alternate;
     --animation_neon_fail: letter__fail 1s forwards;
+
+    --transition: all 300ms cubic-bezier(.39, .79, .81, .78);
 }
 
 
@@ -107,10 +112,10 @@ body {
     }
 
     & article {
-        margin-bottom: 6.5rem;
+        margin-bottom: 7rem;
 
         & p {
-            margin-bottom: 1.4rem;
+            margin-bottom: 1.6rem;
         }
     }
 }
@@ -150,7 +155,7 @@ header {
             width: 0;
             height: 1px;
             background-color: var(--color_green);
-            transition: all .3s;
+            transition: var(--transition)
         }
 
         & .header__item.active:before {
@@ -313,7 +318,7 @@ header {
     & .spetial__title {
         color: var(--color_dark);
         -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: rgba(40, 139, 124, 0.3);
+        -webkit-text-stroke-color: rgba(40, 139, 124, 0.25);
         cursor: pointer;
     }
 }
