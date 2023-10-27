@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { slugify } from '../../core/services/Slug'
+import useSlug from '../../hooks/Slug'
 
 const ProjectItem = ({ project }) => {
+  const slugify = useSlug()
 
   /**
    * aplicate split to project title

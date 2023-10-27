@@ -1,9 +1,10 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { PROJECTS } from '../../core/data/projectData'
-import { slugify } from '../../core/services/Slug'
+import useSlug from '../../hooks/Slug'
 
 const ProjectDetail = () => {
+  const slugify = useSlug()
   const { name } = useParams();
 
   /**

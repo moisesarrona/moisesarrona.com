@@ -5,11 +5,15 @@ import React from 'react';
   * @param {string} name project name
   * @returns string
   */
-const useSlugify = (name) => {
-  return name.toLowerCase()
+const useSlug = () => {
+  const slugify = (name) => {
+    return name.toLowerCase()
     .replace(/\s+/g, '-')
     .replace(/[^\w-]+/g, '')
     .replace(/--+/g, '-')
+  }
+
+  return slugify
 }
 
-export default useSlugify
+export default useSlug
