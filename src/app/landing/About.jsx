@@ -11,7 +11,7 @@ const About = () => {
       <div className='content__about'>
         <article>
           <div className='spetial__content'>
-            <h1 className='spetial__title'><span className='spetial__letter neon'>W</span>ho I'm?</h1>
+            <h1 className='spetial__title'><span className='spetial__letter'>W</span>ho I'm?</h1>
           </div>
 
           {

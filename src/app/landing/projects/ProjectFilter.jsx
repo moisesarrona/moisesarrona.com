@@ -28,7 +28,7 @@ const ProjectFilter = ({
                   checked={filterType === type || (!filterType && type === 'ALL')}
                   onChange={handleType} />
 
-                <div className='option__box'>
+                <div className='option__box box'>
                   <FontAwesomeIcon
                     icon={
                       type.toUpperCase() === 'DESKTOP APP' ? faLaptop :
