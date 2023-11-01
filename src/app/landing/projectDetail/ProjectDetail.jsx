@@ -78,7 +78,7 @@ const ProjectDetail = () => {
               {
                 project.images.map((image, index) => {
                   return (
-                    <div className='image__container col__3' key={index}>
+                    <div className='image__container col__3 project__image--item' key={index}>
                       <img src={image} />
                     </div>
                   )

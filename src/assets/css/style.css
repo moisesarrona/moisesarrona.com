@@ -660,7 +660,7 @@ header {
 
 .image__container {
     width: 100%;
-    height: 450px;
+    height: 65vh;
 
     & img {
         width: 100%;
