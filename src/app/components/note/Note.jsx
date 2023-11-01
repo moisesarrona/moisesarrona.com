@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
 import { TIPS } from '../../core/data/noteData'
+import { useRoute } from '../../context/RouteContext'
 
 const Note = () => {
   const [tip, setTip] = useState('')
   const [tipIndex, setTipIndex] = useState(0)
-  const path = useLocation().pathname.replace('/', '')
-  const tipValue = TIPS[0][path];
+  const currentPath = useRoute()
+  const tipValue = TIPS[0][currentPath];
 
   /**
    * Change text to page.
@@ -23,13 +23,13 @@ const Note = () => {
     } else {
       setTip('Ups! resource not found')
     }
-  }, [path, tipIndex])
+  }, [currentPath, tipIndex])
 
   /**
    * Select text to show
    */
   const selectText = () => {
-    const texts = TIPS[0][path]
+    const texts = TIPS[0][currentPath]
     texts.length > 0 ? setTip(texts[tipIndex]) : setTip('Tips not found, bug!!')
   }
 

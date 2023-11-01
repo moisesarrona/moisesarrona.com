@@ -13,27 +13,33 @@ import ProjectDetail from './app/landing/projectDetail/ProjectDetail';
 import Error from './app/landing/Error';
 
 import './assets/css/style.css';
+import { RouteProvider } from './app/context/RouteContext';
+import ScrollToTop from './app/components/functionals/ScrollToTop';
 
 function App() {
   return (
     <>
-      <Header />
+      <RouteProvider>
+        <Header />
 
-      <Lateral />
+        <Lateral />
 
-      <Note />
+        <Note />
 
-      <main>
-        <Routes>
-          <Route path='/home' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/projects' element={<Projects />} />
-          <Route path='/projects/:name' element={<ProjectDetail />} />
-          <Route path='/*' element={<Error />} />
-        </Routes>
-      </main>
+        <main>
+          <ScrollToTop />
 
-      <Terminal />
+          <Routes>
+            <Route path='/home' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/projects' element={<Projects />} />
+            <Route path='/projects/:name' element={<ProjectDetail />} />
+            <Route path='/*' element={<Error />} />
+          </Routes>
+        </main>
+
+        <Terminal />
+      </RouteProvider>
     </>
   );
 }
