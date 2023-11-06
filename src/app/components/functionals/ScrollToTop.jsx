@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { useRoute } from '../../context/RouteContext'
+import { useRoutePath } from '../../context/RoutePathContext'
 
 const ScrollToTop = () => {
-  const currentPath = useRoute()
+  const currentPath = useRoutePath()
 
   /**
    * Scroll top

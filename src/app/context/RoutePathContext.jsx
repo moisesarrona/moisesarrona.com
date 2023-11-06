@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import { createContext, useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-const RouteContext = createContext();
+const RoutePathContext = createContext();
 
-export const useRoute = () => {
-    return useContext(RouteContext)
+export const useRoutePath = () => {
+    return useContext(RoutePathContext)
 } 
 
-export const RouteProvider = ({children}) => {
+export const RoutePathProvider = ({children}) => {
     const location = useLocation()
     const [path, setPath] = useState();
 
@@ -20,8 +20,8 @@ export const RouteProvider = ({children}) => {
     }, [location])
 
     return (
-        <RouteContext.Provider value={path}>
+        <RoutePathContext.Provider value={path}>
             {children}
-        </RouteContext.Provider>
+        </RoutePathContext.Provider>
     )
 }

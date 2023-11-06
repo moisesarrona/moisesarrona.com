@@ -13,13 +13,13 @@ import ProjectDetail from './app/landing/projectDetail/ProjectDetail';
 import Error from './app/landing/Error';
 
 import './assets/css/style.css';
-import { RouteProvider } from './app/context/RouteContext';
+import { RoutePathProvider } from './app/context/RoutePathContext';
 import ScrollToTop from './app/components/functionals/ScrollToTop';
 
 function App() {
   return (
     <>
-      <RouteProvider>
+      <RoutePathProvider>
         <Header />
 
         <Lateral />
@@ -39,7 +39,7 @@ function App() {
         </main>
 
         <Terminal />
-      </RouteProvider>
+      </RoutePathProvider>
     </>
   );
 }

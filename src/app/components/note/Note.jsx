@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { TIPS } from '../../core/data/noteData'
-import { useRoute } from '../../context/RouteContext'
+import { useRoutePath } from '../../context/RoutePathContext'
 
 const Note = () => {
   const [tip, setTip] = useState('')
   const [tipIndex, setTipIndex] = useState(0)
-  const currentPath = useRoute()
+  const currentPath = useRoutePath()
   const tipValue = TIPS[0][currentPath];
 
   /**
