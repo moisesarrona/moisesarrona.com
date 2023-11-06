@@ -2,7 +2,6 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram, faLinkedinIn, faCodepen } from '@fortawesome/free-brands-svg-icons'
-import img from '../../assets/img/me.png'
 import { ABOUT, SKILLS, STUDIES, CONTACT } from '../core/data/aboutData'
 
 const About = () => {
@@ -71,7 +70,7 @@ const About = () => {
             <div className="col__left">
               <div className="grid">
                 <div className='contact__profile col__2'>
-                  <img src={img} className='contact__img' alt="i'm moy" />
+                  <img src='' className='contact__img' alt="i'm moy" />
                   <a href='https://github.com/moisesarrona'
                     target='_blank'
                     className='contact_link'>@moisesarrona</a>

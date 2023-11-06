@@ -342,6 +342,7 @@ header {
 
     & .contact__img {
         width: 230px;
+        height: 230px;
         border-radius: 100%;
     }
 
