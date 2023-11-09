@@ -5,7 +5,7 @@ import { useRoutePath } from '../../context/RoutePathContext'
 const Note = () => {
   const [tip, setTip] = useState('')
   const [tipIndex, setTipIndex] = useState(0)
-  const currentPath = useRoutePath()
+  const currentPath = useRoutePath();
   const tipValue = TIPS[0][currentPath];
 
   /**
