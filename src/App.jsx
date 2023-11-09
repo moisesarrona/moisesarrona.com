@@ -15,6 +15,7 @@ import Error from './app/landing/Error';
 import './assets/css/style.css';
 import { RoutePathProvider } from './app/context/RoutePathContext';
 import ScrollToTop from './app/components/functionals/ScrollToTop';
+import Avatar from './app/components/avatar/Avatar';
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
         <Lateral />
 
         <Note />
+
+        <Avatar />
 
         <main>
           <ScrollToTop />
