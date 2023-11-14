@@ -9,14 +9,14 @@ export const useRoutePath = () => {
 } 
 
 export const RoutePathProvider = ({children}) => {
-    const location = useLocation()
-    const [path, setPath] = useState();
+    const location = useLocation().pathname.replace('/', '');
+    const [path, setPath] = useState(location);
 
     /**
      * Get path name without /
      */
     useEffect(() => {
-        setPath(location.pathname.replace('/', ''))
+        setPath(location)
     }, [location])
 
     return (
