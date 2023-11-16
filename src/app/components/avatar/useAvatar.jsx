@@ -44,7 +44,7 @@ const useAvatar = () => {
       scene.fog = fog;
 
       //Lights to model
-      const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 2.6);
       directionalLight.position.set(1, 1, 2);
       directionalLight.castShadow = true;
       scene.add(directionalLight);
@@ -162,7 +162,7 @@ const useAvatar = () => {
 
     }
     
-    const { scene, camera, renderer, canva } = initScene();
+    const { scene, camera, renderer, canvas } = initScene();
 
     loadModel();
     animate();
