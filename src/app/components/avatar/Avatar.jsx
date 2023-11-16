@@ -1,146 +1,79 @@
 import React, { useEffect, useRef } from 'react'
-import * as THREE from 'three'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { ANIMATIONS, AVATAR_PATH} from '../../core/data/avatarData'
+import useAvatar from './useAvatar'
+import { gsap } from 'gsap'
+import { useRoutePath } from '../../context/RoutePathContext';
+import { ANIMATIONS } from '../../core/data/avatarData'
 
 const Avatar = () => {
-  const canvasRef = useRef();
-  const modelRef = useRef();
-  const mixerRef = useRef();
-  const currentAnimation = useRef();
-  const prevAnimation = useRef();
-  const actions = [];
+  const currentPath = useRoutePath();
+  const { canvasRef, modelRef, cameraRef, animationPlay } = useAvatar();
 
-  /**
-   * Init model in threejs
-   */
-  useEffect(() => {    
-    /**
-     * Init properties to scene threejs
-     * @returns scene: scene Scene, camera: PerspectiveCamera, renderer: WebGLRenderer
-     */
-    const initScene = () => {
-      //Get canvas properties
-      const canvas = canvasRef.current;
-      const { clientWidth: width, clientHeight: height} = canvas;
-
-      //Envirement to Threejs
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(75, width / height, 0.5, 1000);
-      const renderer = new THREE.WebGLRenderer();
-
-      //Properties to model
-      canvas.appendChild(renderer.domElement);
-      renderer.setSize(width, height);
-      renderer.shadowMap.enabled = true;
-      camera.position.set(0, 0, 10);
-      camera.lookAt(new THREE.Vector3(0, 0, 0));
-
-      //Lights to model
-      const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
-      directionalLight.position.set(1, 1, 2);
-      directionalLight.castShadow = true;
-      scene.add(directionalLight);
-
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-      scene.add(ambientLight);
-      return {scene, camera, renderer, canvas}
+  const timeLine = gsap.timeline({
+    defaults:{
+      duration: 1,
+      ease: 'power4.inOut'
     }
+  })
 
+  useEffect(() => {
     /**
-     * Load model from gltf file
+     * Change position model and position camera add animation gsap
+     * @param {number} mX position model in x
+     * @param {number} mY position model in y
+     * @param {number} mZ position model in z
+     * @param {number} cX position camera in x
+     * @param {number} cY position camera in y
+     * @param {number} cZ position camera in z
      */
-    const loadModel = () => {
-      const load = new GLTFLoader();
-      load.load(AVATAR_PATH, (gltf) => {
-        const model = gltf.scene;
-        model.position.set(0, -8, 0);
-        scene.add(model);
-        animationsBuild(gltf);
-        animationPlay(ANIMATIONS.FLICKER, false)
-        modelRef.current = model;
+    const moveCamera = (mX, mY, mZ, cX, cY, cZ) => {
+      timeLine
+      .to(modelRef.current.position, {
+        x: mX,
+        y: mY,
+        z: mZ
       })
+      .to(cameraRef.current.position, {
+        x: cX,
+        y: cY,
+        z: cZ,
+        onUpdate: () => {
+          cameraRef.current.updateProjectionMatrix();
+        }
+      }, '-=1')
     }
-
+    
     /**
-     * Renderer scene and camera in every frame
+     * get current path to change position model and camera
      */
-    const animate = () => {
-      if (mixerRef.current) {
-        mixerRef.current.update(0.02)
+    const moveCameraByPath = () => {
+      if (cameraRef.current && modelRef.current) {
+        if (currentPath === 'home') {
+          moveCamera(0, -8, 0, 0, 0, 10)
+        }
+
+        if(currentPath === 'about') {
+          moveCamera(-2, -8, -6, -10, 0, 5)
+        }
+
+        if(currentPath === 'projects') {
+          moveCamera(2, -8, -6, 10, 0, 5)
+        }
       }
-      camera.lookAt(new THREE.Vector3(0, 0, 0));
-      renderer.render(scene, camera);
-      requestAnimationFrame(animate);
-    }
+    }    
 
-    /**
-     * Update scene dimentions when resize window
-     */
-    const resizeModel = () => {
-      renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-      camera.aspect = canvas.clientWidth / canvas.clientHeight;
-      camera.updateProjectionMatrix();
-      animationPlay(ANIMATIONS.SAY_YES, true);
-    }
-
-    /**
-     * Build all model animations
-     * @param {object} gltf model file with all properties
-     */
-    const animationsBuild = (gltf) => {
-      const mixer = new THREE.AnimationMixer(gltf.scene);
-      gltf.animations.forEach(clip => {
-        const action = mixer.clipAction(clip);
-        actions.push(action)
-      });
-      mixerRef.current = mixer;
-    }
-
-    const {scene, camera, renderer, canvas} = initScene();
-
-    loadModel();
-    animate();
-    window.addEventListener('resize', resizeModel);
-
-    /**
-     * Clean up functions
-     */
+    moveCameraByPath();
+  
     return () => {
-      renderer.domElement.remove();
-      renderer.dispose();
-      window.removeEventListener('resize', resizeModel);
+      
     }
-  }, [])
-
-  /**
-   * Play model animation identity if animation is emote
-   * @param {number} index animation index from ANIMATIONS
-   * @param {boolean} emote emote to play one time
-   */
-  const animationPlay = (index, emote) => {
-    prevAnimation.current = currentAnimation.current
-    currentAnimation.current = actions[index];
-
-    if (prevAnimation.current === currentAnimation.current && prevAnimation.current) {
-      prevAnimation.current.fadeOut(0.2);
-    }
-
-    if (emote) {
-      currentAnimation.current.clampWhenFinished = true;
-      currentAnimation.current.loop = THREE.LoopOnce;
-    }
-
-    currentAnimation.current.reset();
-    currentAnimation.current.fadeIn(0.02);
-    currentAnimation.current.play();
-  }
+  }, [currentPath])
 
   return (
     <>
       <div ref={canvasRef}
       className='canvas__avatar'
-      onClick={() => animationPlay(ANIMATIONS.SAY_NO, true)}></div>
+      onClick={() => animationPlay(ANIMATIONS.SAY_NO, true)}
+      ></div>
     </>
   )
 }
