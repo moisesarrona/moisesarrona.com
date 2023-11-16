@@ -258,7 +258,7 @@ header {
             background: none;
             color: var(--color_white);
             font-family: Inconsolata !important;
-            font-size: var(--font_normal) !important;
+            font-size: var(--font_small) !important;
             letter-spacing: 1px !important;
         }
 
@@ -329,7 +329,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 0;
 }
 
 
@@ -550,6 +550,7 @@ header {
 
 /* --- PROJECT DETAIL --- */
 .content__project {
+    position: relative;
     width: 60vw;
     margin: auto;
     margin-top: calc(var(--h-w_base) * 3);
