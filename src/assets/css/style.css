@@ -169,6 +169,56 @@ header {
 }
 
 
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 12;
+    background-color: var(--color_black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+
+    & .preloader__content {
+        width: 120px;
+
+        & .preloader__counter {
+            font-size: var(--font_normal);
+            margin-bottom: 0.6rem;
+        }
+
+        & .preloader__load {
+            position: relative;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color_dark);
+
+            & .preloader__load--color {
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                background-color: var(--color_green);
+            }
+        }
+    }
+}
+
+.preloader__back {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    background-color: var(--color_green);
+}
+
+
 /* --- LATERAL --- */
 .lateral {
     position: fixed;
