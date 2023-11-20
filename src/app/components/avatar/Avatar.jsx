@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import useAvatar from './useAvatar'
 import { gsap } from 'gsap'
 import { useRoutePath } from '../../context/RoutePathContext';
