@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 
 import Header from './app/components/template/Header';
 import Lateral from './app/components/template/Lateral';
-
 import Note from './app/components/note/Note';
 import Terminal from './app/components/terminal/Terminal';
 
@@ -12,37 +11,45 @@ import Projects from './app/landing/projects/Projects';
 import ProjectDetail from './app/landing/projectDetail/ProjectDetail';
 import Error from './app/landing/Error';
 
-import './assets/css/style.css';
 import { RoutePathProvider } from './app/context/RoutePathContext';
+import { PreloaderProvider } from './app/context/LoadContext';
 import ScrollToTop from './app/components/functionals/ScrollToTop';
 import Avatar from './app/components/avatar/Avatar';
+import Preloader from './app/components/preloader/Preloader';
+
+import './assets/css/style.css';
 
 function App() {
+
   return (
     <>
-      <RoutePathProvider>
-        <Header />
+      <PreloaderProvider>
+        <Preloader />
+        
+        <RoutePathProvider>
+          <Header />
 
-        <Lateral />
+          <Lateral />
 
-        <Note />
+          <Note />
 
-        <Avatar />
+          <Avatar />
 
-        <main>
-          <ScrollToTop />
+          <main>
+            <ScrollToTop />
 
-          <Routes>
-            <Route path='/home' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/projects' element={<Projects />} />
-            <Route path='/projects/:name' element={<ProjectDetail />} />
-            <Route path='/*' element={<Error />} />
-          </Routes>
-        </main>
+            <Routes>
+              <Route path='/home' element={<Home />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/projects' element={<Projects />} />
+              <Route path='/projects/:name' element={<ProjectDetail />} />
+              <Route path='/*' element={<Error />} />
+            </Routes>
+          </main>
 
-        <Terminal />
-      </RoutePathProvider>
+          <Terminal />
+        </RoutePathProvider>
+      </PreloaderProvider>
     </>
   );
 }

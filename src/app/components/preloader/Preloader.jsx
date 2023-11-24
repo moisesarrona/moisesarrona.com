@@ -9,14 +9,16 @@ const Preloader = () => {
   const preloadBackRef = useRef();
   const { markPreloaderFinished } = usePreloader()
 
-  const timeLine = gsap.timeline({
-    defaults: {
-      ease: "power2.out",
-    }
-  });
-
   useEffect(() => {
+    const timeLine = gsap.timeline({
+      defaults: {
+        ease: "power2.out",
+      }
+    });
 
+    /**
+     * When load page start preloader
+     */
     const handLoad = () => {
       timeLine
         .to(countRef.current, {
@@ -39,7 +41,7 @@ const Preloader = () => {
           top: '-100%',
           duration: 0.4,
           delay: 0.75,
-          onUpdate: () => {
+          onComplete: () => {
             markPreloaderFinished()
           }
         }, "-=1")
