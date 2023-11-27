@@ -12,7 +12,7 @@ import ProjectDetail from './app/landing/projectDetail/ProjectDetail';
 import Error from './app/landing/Error';
 
 import { RoutePathProvider } from './app/context/RoutePathContext';
-import { PreloaderProvider } from './app/context/LoadContext';
+import { LoaderProvider } from './app/context/LoadContext';
 import ScrollToTop from './app/components/functionals/ScrollToTop';
 import Avatar from './app/components/avatar/Avatar';
 import Preloader from './app/components/preloader/Preloader';
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      <PreloaderProvider>
+      <LoaderProvider>
         <Preloader />
         
         <RoutePathProvider>
@@ -49,7 +49,7 @@ function App() {
 
           <Terminal />
         </RoutePathProvider>
-      </PreloaderProvider>
+      </LoaderProvider>
     </>
   );
 }

@@ -1,21 +1,21 @@
 import { createContext, useContext, useState } from "react";
 
-const PreloaderContext = createContext();
+const LoaderContext = createContext();
 
-export const usePreloader = () => {
-    return useContext(PreloaderContext);
+export const useLoader = () => {
+    return useContext(LoaderContext);
 }
 
-export const PreloaderProvider = ({children}) => {
-    const [preloaderFinished, setPreloaderFinished] = useState(false);
+export const LoaderProvider = ({children}) => {
+    const [loaderFinished, setLoaderFinished] = useState(false);
 
-    const markPreloaderFinished =() =>{
-        setPreloaderFinished(true)
+    const markLoaderFinished =() =>{
+        setLoaderFinished(true)
     }
 
     return  (
-        <PreloaderContext.Provider value={{preloaderFinished, markPreloaderFinished }}>
+        <LoaderContext.Provider value={{loaderFinished, markLoaderFinished }}>
             {children}
-        </PreloaderContext.Provider>
+        </LoaderContext.Provider>
     )
 }
