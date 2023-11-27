@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
-import { usePreloader } from '../../context/LoadContext';
+import { useLoader } from '../../context/LoadContext';
 
 const Preloader = () => {
   const countRef = useRef(0);
   const loadRef = useRef('');
   const preloadRef = useRef();
   const preloadBackRef = useRef();
-  const { markPreloaderFinished } = usePreloader()
+  const { markLoaderFinished } = useLoader();
 
   useEffect(() => {
     const timeLine = gsap.timeline({
@@ -42,7 +42,7 @@ const Preloader = () => {
           duration: 0.4,
           delay: 0.75,
           onComplete: () => {
-            markPreloaderFinished()
+            markLoaderFinished()
           }
         }, "-=1")
     }
