@@ -13,8 +13,6 @@ const useAvatar = () => {
   const actionsRef = useRef();
   const cameraRef = useRef();
 
-  const timeLine = new gsap.timeline();
-
   /**
    * Init model in threejs
    */
@@ -71,7 +69,6 @@ const useAvatar = () => {
         animationsBuild(gltf);
         animationPlay(ANIMATIONS.FLICKER, false);
         modelRef.current = model;
-        moveModelWhenStart();
       })
     }
 
@@ -115,50 +112,38 @@ const useAvatar = () => {
     }
 
     /**
-     *  Add aimation in Y when scene start
-     */
-    const moveModelWhenStart = () => {
-      if (modelRef.current) {
-        timeLine.from(modelRef.current.position, {
-          y: -25,
-          duration: 1,
-          ease: 'power4.inOut'
-        });
-      }
-    };
-
-    /**
      * Move model when mouse move in window
      * @param {object} event event from click in windows
      */
     const onMouseMove = (event) => {
       event.preventDefault();
     
-      const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-      const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-    
-      const targetRotationY = (mouseX * Math.PI) / 2;
-      const targetRotationX = -(mouseY * Math.PI) / 2;
-        
-      gsap.to(modelRef.current.rotation, {
-        y: targetRotationY * 0.15,
-        x: targetRotationX * 0.06,
-        duration: 0.5,
-      });
+      if (modelRef.current) {
+        const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+        const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+      
+        const targetRotationY = (mouseX * Math.PI) / 2;
+        const targetRotationX = -(mouseY * Math.PI) / 2;
+          
+        gsap.to(modelRef.current.rotation, {
+          y: targetRotationY * 0.15,
+          x: targetRotationX * 0.06,
+          duration: 0.5,
+        });
 
+        // const vector = new THREE.Vector3(mouseX, mouseY, 0.5);
+        // vector.unproject(cameraRef.current);
+        // const dir = vector.sub(cameraRef.current.position).normalize();
+        // const distance = -cameraRef.current.position.z / dir.z;
+        // const pos = cameraRef.current.position.clone().add(dir.multiplyScalar(distance));
 
-      // const vector = new THREE.Vector3(mouseX, mouseY, 0.5);
-      // vector.unproject(cameraRef.current);
-      // const dir = vector.sub(cameraRef.current.position).normalize();
-      // const distance = -cameraRef.current.position.z / dir.z;
-      // const pos = cameraRef.current.position.clone().add(dir.multiplyScalar(distance));
-
-      // gsap.to(spotlight.position, {
-      //   x: pos.x,
-      //   y: pos.y,
-      //   z: pos.z + 2,
-      //   duration: 0.5,
-      // });
+        // gsap.to(spotlight.position, {
+        //   x: pos.x,
+        //   y: pos.y,
+        //   z: pos.z + 2,
+        //   duration: 0.5,
+        // });
+      }
 
     }
     
@@ -166,7 +151,6 @@ const useAvatar = () => {
 
     loadModel();
     animate();
-    moveModelWhenStart();
     window.addEventListener('resize', resizeModel);
     window.addEventListener('mousemove', onMouseMove);
 

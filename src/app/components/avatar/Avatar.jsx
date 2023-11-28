@@ -15,6 +15,9 @@ const Avatar = () => {
     }
   })
 
+  /**
+   * Move camera when change path
+   */
   useEffect(() => {
     /**
      * Change position model and position camera add animation gsap
