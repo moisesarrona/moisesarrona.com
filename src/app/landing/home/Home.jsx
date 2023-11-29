@@ -1,6 +1,6 @@
-import React from 'react'
-import HomeLetters from './HomeLetters'
-import { WELCOME_DATA } from '../../core/data/homeData'
+import React from 'react';
+import HomeLetters from './HomeLetters';
+import { WELCOME_DATA } from '../../core/data/homeData';
 
 const Home = () => {
   const titleWords = WELCOME_DATA.title.split('');
@@ -26,7 +26,7 @@ const Home = () => {
                titleWords.map((letter, index) => {
                   const activeClass = randomOne===index? true : randomTwo===index? true : false
                   return (
-                    <HomeLetters key={index} letter={letter} activeClass={activeClass}/>
+                    <HomeLetters key={index} letter={letter} activeClass={activeClass} index={index}/>
                   )
                 })
               }
