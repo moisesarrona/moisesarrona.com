@@ -66,9 +66,6 @@ const Avatar = () => {
 
     moveCameraByPath();
   
-    return () => {
-      
-    }
   }, [currentPath])
 
   return (

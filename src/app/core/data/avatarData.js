@@ -4,4 +4,4 @@ export const ANIMATIONS = {
     FLICKER: 2
 }
 
-export const AVATAR_PATH = './render/avatar/avatar.gltf'
+export const AVATAR_PATH = '../render/avatar/avatar.gltf'
