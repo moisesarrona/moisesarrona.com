@@ -1,16 +1,19 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
-import { PROJECTS } from '../../core/data/projectData'
-import useSlug from '../../hooks/useSlug'
+import React, { useEffect, useRef } from 'react';
+import { useParams } from 'react-router-dom';
+import { PROJECTS } from '../../core/data/projectData';
+import useSlug from '../../hooks/useSlug';
+import gsap from 'gsap';
+import { useLoader } from '../../context/LoadContext';
 
 const ProjectDetail = () => {
   const slugify = useSlug()
   const { name } = useParams();
-
-  /**
-   * Find project from slug project name
-   */
   const project = PROJECTS.find(p => slugify(p.name) === name);
+  const timeLine = gsap.timeline();
+  const contentAnimRef = useRef();
+  const resultAnimRef = useRef();
+  const imageAnimRef = project.images.map(() => useRef());
+  const { loaderFinished } = useLoader();
 
   /**
    * get project name and convert to array for letter
@@ -21,14 +24,82 @@ const ProjectDetail = () => {
     return name.split('');
   }
 
+  /**
+   * Start animations with gsap when loaded page
+   */
+  useEffect(() => {
+
+    /**
+     * Container animation
+     */
+    const contentAnimation = () => {
+      if (contentAnimRef.current && resultAnimRef.current) {
+        contentAnimRef.current.style.opacity = 0;
+        contentAnimRef.current.style.top = '50px';
+
+        resultAnimRef.current.style.opacity = 0;
+
+        if (loaderFinished) {
+          timeLine
+            .to(contentAnimRef.current, {
+              opacity: 1,
+              top: 0,
+              duration: 0.8
+            })
+            .to(resultAnimRef.current, {
+              opacity: 1,
+              ease: "bounce.out"
+            }, '<')
+
+        }
+      }
+    }
+
+    /**
+     * Animation to item when scrolling
+     */
+    const scrollAnimation = () => {
+      project.images.forEach((images, index) => {
+        if (imageAnimRef[index].current) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: imageAnimRef[index].current,
+              scrub: 2,
+              start: 'top center'
+            }
+          });
+  
+          tl
+            .to(imageAnimRef[index].current, {
+              scaleX: 0.7,
+              scaleY: 1.3
+            })
+        }
+      })
+    }
+
+    contentAnimation();
+    scrollAnimation();
+
+    return () => {
+      gsap.killTweensOf([
+        contentAnimRef,
+        resultAnimRef,
+        imageAnimRef
+      ])
+    }
+
+  }, [loaderFinished])
+
+
   return (
     <>
       <section>
-        <div className='content__project'>
-          <a href={project.result} target='_blank' rel='noopener noreferrer' className='project__result box'>
-            Result
-          </a>
+        <a href={project.result} target='_blank' rel='noopener noreferrer' className='project__result box' ref={resultAnimRef}>
+          Result
+        </a>
 
+        <div className='content__project glass' ref={contentAnimRef}>
           <article>
             <div className='spetial__content'>
               <h1 className='spetial__title'>
@@ -78,7 +149,7 @@ const ProjectDetail = () => {
               {
                 project.images.map((image, index) => {
                   return (
-                    <div className='image__container col__3 project__image--item' key={index}>
+                    <div className='image__container col__3 project__image' key={index} ref={imageAnimRef[index]}>
                       <img src={image} />
                     </div>
                   )
