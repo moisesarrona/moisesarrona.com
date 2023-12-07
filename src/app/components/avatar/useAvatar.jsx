@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react'
-import * as THREE from 'three'
-import { gsap } from 'gsap'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { ANIMATIONS, AVATAR_PATH} from '../../core/data/avatarData'
+import React, { useEffect, useRef } from 'react';
+import * as THREE from 'three';
+import { gsap } from 'gsap';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { ANIMATIONS, AVATAR_PATH} from '../../core/data/avatarData';
 
 const useAvatar = () => {
   const canvasRef = useRef();
@@ -42,17 +42,13 @@ const useAvatar = () => {
       scene.fog = fog;
 
       //Lights to model
-      const directionalLight = new THREE.DirectionalLight(0xffffff, 2.6);
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 2.8);
       directionalLight.position.set(1, 1, 2);
       directionalLight.castShadow = true;
       scene.add(directionalLight);
 
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+      const ambientLight = new THREE.AmbientLight(0xffffff, 1);
       scene.add(ambientLight);
-
-      // const spotlight = new THREE.SpotLight(0xffffff, 3, 10, Math.PI / 4, 1);
-      // spotlight.position.set(0, 0, 5);
-      // scene.add(spotlight);
 
       return { scene, camera, renderer, canvas }
     }
@@ -77,7 +73,7 @@ const useAvatar = () => {
      */
     const animate = () => {
       if (mixerRef.current) {
-        mixerRef.current.update(0.020)
+        mixerRef.current.update(0.02)
       }
       camera.lookAt(new THREE.Vector3(0, 0, 0));
       renderer.render(scene, camera);
@@ -137,7 +133,7 @@ const useAvatar = () => {
         // const distance = -cameraRef.current.position.z / dir.z;
         // const pos = cameraRef.current.position.clone().add(dir.multiplyScalar(distance));
 
-        // gsap.to(spotlight.position, {
+        // gsap.to(directionalLight.position, {
         //   x: pos.x,
         //   y: pos.y,
         //   z: pos.z + 2,
