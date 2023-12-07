@@ -1,24 +1,25 @@
-import React, { useState } from 'react'
-import { PROJECTS } from '../../core/data/projectData'
-import ProjectItem from './ProjectItem'
-import ProjectFilter from './ProjectFilter'
+import React, { useRef, useState } from 'react';
+import { PROJECTS } from '../../core/data/projectData';
+import ProjectItem from './ProjectItem';
+import ProjectFilter from './ProjectFilter';
 
 const Projects = () => {
-  const [filterType, setFilterType] = useState('')
+  const [filterType, setFilterType] = useState('');
+  const contentAnimRef  = useRef();
 
   /**
    * save input string radio
    * @param {event} e  event from input radio
    */
   const handleType = (e) => {
-    setFilterType(e.target.value)
+    setFilterType(e.target.value);
   }
 
   /**
    * Clear filters
    */
   const clearFilter = () => {
-    setFilterType('')
+    setFilterType('');
   }
 
   /**
@@ -31,6 +32,9 @@ const Projects = () => {
     return types
   }
 
+  /**
+   * Filter project when type change
+   */
   const filteredProjects = PROJECTS.filter((project) => {
     if (filterType.toUpperCase() != 'ALL') {
       const searchType = filterType.toUpperCase()
@@ -40,12 +44,12 @@ const Projects = () => {
     }
     return clearFilter()
   });
+  
 
   return (
     <>
       <section>
-        <div className='content__projects'>
-        {filterType}
+        <div className='content__projects' ref={contentAnimRef}>
           <ProjectFilter filterType={filterType} 
             handleType={handleType}
             typeProject={getTypeProject()}
