@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Header from './app/components/template/Header';
 import Lateral from './app/components/template/Lateral';
@@ -6,7 +6,7 @@ import Note from './app/components/note/Note';
 import Terminal from './app/components/terminal/Terminal';
 
 import Home from './app/landing/home/Home';
-import About from './app/landing/About';
+import About from './app/landing/about/About';
 import Projects from './app/landing/projects/Projects';
 import ProjectDetail from './app/landing/projectDetail/ProjectDetail';
 import Error from './app/landing/Error';
@@ -39,6 +39,7 @@ function App() {
             <ScrollToTop />
 
             <Routes>
+              <Route path='/' element={<Navigate to='/home' />} />
               <Route path='/home' element={<Home />} />
               <Route path='/about' element={<About />} />
               <Route path='/projects' element={<Projects />} />
