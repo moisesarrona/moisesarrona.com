@@ -31,7 +31,7 @@ const ProjectFilter = ({
             timeLine.to(inputAnimRef[index].current, {
               opacity: 1,
               marginLeft: 0,
-              duration: 0.25
+              duration: 0.15
             })
           }
         }

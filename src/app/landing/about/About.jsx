@@ -39,6 +39,21 @@ const About = () => {
       }
     }
 
+    contentAnimation();
+
+    return() => {
+      gsap.killTweensOf([
+        contentAnimRef.current
+      ])
+    }
+
+  }, [loaderFinished])
+
+  /**
+   * Start animations
+   */
+  useEffect(() => {
+
     /**
      * Percent skill animation
      */
@@ -59,10 +74,15 @@ const About = () => {
       });
     };
 
-    contentAnimation();
     percentAnimation();
 
-  }, [loaderFinished])
+    return () => {
+      gsap.killTweensOf([
+        percentRefs.current,
+        contentAnimRef.current
+      ])
+    }
+  }, [])
 
   return (
     <section>

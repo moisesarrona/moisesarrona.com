@@ -44,6 +44,12 @@ const HomeLetters = ({activeClass, letter, index}) => {
 
     letterAnimation();
 
+    return () => {
+      gsap.killTweensOf([
+        letterAnimRef.current
+      ])
+    }
+
   }, [loaderFinished])
 
   return (
