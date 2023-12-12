@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { COMMANDS, SECTIONS, TERMINAL_NAME, CONTENTS } from '../../core/data/terminalData'
 import TerminalInput from './TerminalInput';
 import TerminalHistory from './TerminalHistory';
-import TerminalInfo from './TerminalInfo'
+import TerminalInfo from './TerminalInfo';
 
 const Terminal = () => {
-  const [input, setInput] = useState('')
-  const [history, setHistory] = useState([])
-  const [activeFolder, setActiveFolder] = useState('home')
+  const [input, setInput] = useState('');
+  const [history, setHistory] = useState([]);
+  const [activeFolder, setActiveFolder] = useState('home');
 
   /**
    * Get input event
