@@ -493,14 +493,14 @@ header {
     position: relative;
     width: 60vw;
     margin-left: calc(var(--h-w_base) * 1.2);
-    margin-top: calc(var(--h-w_base) * 3);
+    margin-top: calc(var(--h-w_base) * 2);
 }
 
 .project {
     position: relative;
-    height: 65vh;
+    height: calc(100vh - calc(var(--h-w_base) * 2));
+    padding: var(--h-w_base) 0;
     margin-bottom: 10rem;
-    transition: var(--transition);
 
     & .project__image {
         width: 100%;
@@ -509,7 +509,6 @@ header {
         position: relative;
         z-index: 1;
         letter-spacing: 0.15rem;
-        transition: var(--transition);
 
         & .project__date {
             position: absolute;
@@ -539,7 +538,7 @@ header {
             position: absolute;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, .4);
+            background-color: rgba(0, 0, 0, .5);
             backdrop-filter: blur(3px);
             transition: var(--transition);
         }
@@ -548,7 +547,7 @@ header {
     & .project__text {
         position: absolute;
         right: -80px;
-        bottom: -50px;
+        bottom: 30px;
         text-align: end;
 
         & .spetial__title.stroke {
@@ -557,6 +556,7 @@ header {
             left: 0;
             color: transparent;
             -webkit-text-stroke: 1px white;
+            text-shadow: -25px 10px 4px rgba(0, 0, 0, 0.4);
             z-index: 2;
         }
 
@@ -568,10 +568,6 @@ header {
 
     &:hover .project__image::before {
         backdrop-filter: blur(0px);
-    }
-
-    &:hover .project__image {
-        transform: scale(1.03);
     }
 }
 
@@ -604,6 +600,10 @@ header {
     width: 60vw;
     margin: auto;
     margin-top: calc(var(--h-w_base) * 3);
+
+    & .project__image {
+        margin-bottom: 10rem;
+    }
 }
 
 .project__result {
@@ -613,6 +613,7 @@ header {
     transform: translate(0%, -50%);
     transition: var(--transition);
     cursor: pointer;
+    z-index: 2;
 }
 
 
@@ -721,7 +722,7 @@ header {
 
 .image__container {
     width: 100%;
-    height: 65vh;
+    height: 75vh;
 
     & img {
         width: 100%;
