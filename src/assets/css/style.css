@@ -507,7 +507,7 @@ header {
         height: 100%;
         text-transform: lowercase;
         position: relative;
-        z-index: 1;
+        /* z-index: 1; */
         letter-spacing: 0.15rem;
 
         & .project__date {
@@ -558,6 +558,11 @@ header {
             -webkit-text-stroke: 1px white;
             text-shadow: -25px 10px 4px rgba(0, 0, 0, 0.4);
             z-index: 2;
+        }
+
+        & .spetial__title.stroke__none {
+            position: relative;
+            z-index: -2;
         }
 
         & .project__type {
