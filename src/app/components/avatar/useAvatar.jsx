@@ -38,8 +38,6 @@ const useAvatar = () => {
       camera.position.set(0, 0, 10);
       camera.lookAt(new THREE.Vector3(0, 0, 0));
       cameraRef.current = camera;
-      const fog = new THREE.Fog(0x000000, 1, 3000);
-      scene.fog = fog;
 
       //Lights to model
       const directionalLight = new THREE.DirectionalLight(0xffffff, 2.8);
