@@ -7,10 +7,11 @@ import React from 'react';
   */
 const useSlug = () => {
   const slugify = (name) => {
-    return name.toLowerCase()
-    .replace(/\s+/g, '-')
-    .replace(/[^\w-]+/g, '')
-    .replace(/--+/g, '-')
+    if (name)
+      return name.toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w-]+/g, '')
+      .replace(/--+/g, '-')
   }
 
   return slugify
