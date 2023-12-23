@@ -598,6 +598,12 @@ header {
     }
 }
 
+.project__play {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2rem 0rem;
+}
+
 
 /* --- PROJECT DETAIL --- */
 .content__project {

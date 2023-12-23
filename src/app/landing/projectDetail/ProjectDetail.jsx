@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { PROJECTS } from '../../core/data/projectData';
 import useSlug from '../../hooks/useSlug';
 import gsap from 'gsap';
@@ -9,6 +9,8 @@ const ProjectDetail = () => {
   const slugify = useSlug()
   const { name } = useParams();
   const project = PROJECTS.find(p => slugify(p.name) === name);
+  const nextProject = PROJECTS.find(p => p.id === (project.id + 1));
+  const prevProject = PROJECTS.find(p => p.id === (project.id - 1));
   const timeLine = gsap.timeline();
   const contentAnimRef = useRef();
   const resultAnimRef = useRef();
@@ -144,7 +146,7 @@ const ProjectDetail = () => {
             </div>
           </article>
 
-          <article>
+          <article>|
             <div className='grid'>
               {
                 project.images.map((image, index) => {
@@ -157,6 +159,17 @@ const ProjectDetail = () => {
               }
             </div>
           </article>
+
+          <div className='project__play'>
+            {prevProject && (
+              <Link className='box' to={`/projects/${slugify(prevProject.name)}`}>{prevProject.name}</Link>
+            )}
+            {nextProject && (
+              <Link className='box' to={`/projects/${slugify(nextProject.name)}`}>{nextProject.name}</Link>
+            )}
+          </div>
+
+
         </div>
       </section>
     </>
