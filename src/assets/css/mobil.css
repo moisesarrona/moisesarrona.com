@@ -1,0 +1,86 @@
+@media (max-width: 480px) {
+    /* --- NOTE --- */
+    .note {
+        left: 20px;
+        width: 250px;
+    }
+
+    
+    /* --- TERMINAL --- */
+    .terminal {
+        display: none;
+    }
+
+
+    .lateral {
+        display: none;
+    }
+
+    /* --- CONTENTS --- */
+    .content__about,
+    .content__projects,
+    .content__project {
+        width: 85%;
+        margin: calc(var(--h-w_base) * 2.8) auto 2rem;
+    }
+
+
+    /* --- PROJECT --- */
+    .project {
+        height: calc(65vh);
+        margin-bottom: 5rem;
+
+        & .project__text {
+            right: 10px;
+            bottom: 30px;
+        }
+    }
+
+    .option__content {
+        left: 20px;
+
+        & .option__label {
+            width: 50px;
+        }
+    
+        & .option__box {
+            span {
+                display: none;
+            }
+        }
+        
+        .box {
+            width: 50px !important;
+        
+            &:hover {
+                width: 50px !important;
+            }
+        }
+    }
+
+    .project__result {
+        position: fixed;
+        top: 50%;
+        left: 20px;
+    }
+
+
+    /* --- UTILITIES --- */
+    .spetial__content {
+        & .spetial__title {
+            font-size: 10vw;
+    
+            & .spetial__letter {
+                font-size: 21vw;
+            }
+        }
+    
+        & .spetial__subtitle {
+            margin-top: -0.6rem;
+        }
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
