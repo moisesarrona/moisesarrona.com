@@ -55,11 +55,11 @@ const Avatar = () => {
         }
 
         if(currentPath === 'about') {
-          moveCamera(-2, -8, -6, -10, 0, 5)
+          moveCamera(-1.5, -8, -6, -10, 0, 5)
         }
 
         if(currentPath === 'projects') {
-          moveCamera(2, -8, -6, 10, 0, 5)
+          moveCamera(1.5, -8, -6, 10, 0, 5)
         }
       }
     }    
