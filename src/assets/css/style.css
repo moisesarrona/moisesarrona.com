@@ -507,7 +507,6 @@ header {
         height: 100%;
         text-transform: lowercase;
         position: relative;
-        /* z-index: 1; */
         letter-spacing: 0.15rem;
 
         & .project__date {
