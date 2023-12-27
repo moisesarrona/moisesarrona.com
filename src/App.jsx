@@ -18,6 +18,7 @@ import Avatar from './app/components/avatar/Avatar';
 import Preloader from './app/components/preloader/Preloader';
 
 import './assets/css/style.css';
+import './assets/css/mobil.css'
 
 function App() {
 
