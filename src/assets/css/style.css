@@ -51,16 +51,19 @@
 @font-face {
     font-family: Autograf;
     src: url(../fonts/Autograf/Autograf_PersonalUseOnly.ttf);
+    font-display: swap;
 }
 
 @font-face {
     font-family: Inconsolata;
     src: url(../fonts/Inconsolata/static/Inconsolata-Regular.ttf);
+    font-display: swap;
 }
 
 @font-face {
     font-family: Spartan;
     src: url(../fonts/Spartan_MB/TTF/SpartanMB-Regular.ttf);
+    font-display: swap;
 }
 
 
@@ -68,6 +71,7 @@
 * {
     padding: 0;
     margin: 0;
+    user-select: none;
 }
 
 body {
@@ -292,7 +296,7 @@ header {
         align-items: center;
         padding: 0.15rem 0rem;
 
-        & div.terminal__name {
+        & .terminal__name {
             padding-right: var(--size-spacing);
             font-weight: bold;
             color: var(--color_green);
