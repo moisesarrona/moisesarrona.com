@@ -34,7 +34,7 @@ const Preloader = () => {
       timeLine
         .to(countRef.current, {
           innerText: 100,
-          duration: 1.4,
+          duration: 1.2,
           delay: 0.5,
           snap: {
             innerText: 1
@@ -42,7 +42,7 @@ const Preloader = () => {
         })
         .to(loadRef.current, {
           width: '100%',
-          duration: 1.4
+          duration: 1.2
         }, '-=1')
         .to(loadContent.current, {
           marginTop: '30px',
