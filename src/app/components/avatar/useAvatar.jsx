@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { gsap } from 'gsap';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { ANIMATIONS, AVATAR_PATH} from '../../core/data/avatarData';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
+import { ANIMATIONS, AVATAR_PATH, DRACO_PATH } from '../../core/data/avatarData';
 
 const useAvatar = () => {
   const canvasRef = useRef();
@@ -55,8 +56,11 @@ const useAvatar = () => {
      * Load model from gltf file
      */
     const loadModel = () => {
-      const load = new GLTFLoader();
-      load.load(AVATAR_PATH, (gltf) => {
+      const dracoLoader = new DRACOLoader();
+      dracoLoader.setDecoderPath(DRACO_PATH);
+      const gltfLoader = new GLTFLoader();
+      gltfLoader.setDRACOLoader(dracoLoader);
+      gltfLoader.load(AVATAR_PATH, (gltf) => {
         const model = gltf.scene;
         model.position.set(0, -8, 0);
         scene.add(model);

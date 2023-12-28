@@ -4,4 +4,5 @@ export const ANIMATIONS = {
     FLICKER: 2
 }
 
-export const AVATAR_PATH = '../render/avatar/avatar.gltf'
+export const AVATAR_PATH = './render/avatar/avatar.gltf'
+export const DRACO_PATH = 'https://www.gstatic.com/draco/v1/decoders/'
