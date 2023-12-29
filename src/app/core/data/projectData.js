@@ -10,8 +10,6 @@ export const PROJECTS = [
         result: "https://github.com/moisesarrona/OldWestBoots",
         images: [
             "https://www.ideamotive.co/hubfs/app%20development%20cost.png",
-            "https://www.ideamotive.co/hubfs/app%20development%20cost.png",
-            "https://www.ideamotive.co/hubfs/app%20development%20cost.png"
         ],
         technologies: [
             ".Net Framework",

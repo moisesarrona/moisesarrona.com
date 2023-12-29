@@ -6,7 +6,7 @@ import gsap from 'gsap';
 import { useLoader } from '../../context/LoadContext';
 
 const ProjectDetail = () => {
-  const slugify = useSlug()
+  const slugify = useSlug();
   const { name } = useParams();
   const project = PROJECTS.find(p => slugify(p.name) === name);
   const nextProject = PROJECTS.find(p => p.id === (project.id + 1));
@@ -168,7 +168,6 @@ const ProjectDetail = () => {
               <Link className='box' to={`/projects/${slugify(nextProject.name)}`}>{nextProject.name}</Link>
             )}
           </div>
-
 
         </div>
       </section>
