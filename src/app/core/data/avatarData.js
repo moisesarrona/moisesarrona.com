@@ -5,4 +5,4 @@ export const ANIMATIONS = {
 }
 
 export const AVATAR_PATH = './render/avatar/avatar.gltf'
-export const DRACO_PATH = 'https://www.gstatic.com/draco/v1/decoders/'
+export const DRACO_PATH = '../render/draco/'
