@@ -29,7 +29,7 @@ const useAvatar = () => {
 
       //Envirement to Threejs
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(70, width / height, 0.5, 1000);
+      const camera = new THREE.PerspectiveCamera(72, width / height, 0.5, 1000);
       const renderer = new THREE.WebGLRenderer();
 
       //Properties to model

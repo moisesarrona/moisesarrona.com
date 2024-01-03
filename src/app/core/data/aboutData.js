@@ -1,8 +1,8 @@
 export const ABOUT = [
-    "My name is Moises Arrona I'm Software Engineer and Software Architect and I worked with any lenguages I know about BackEnd and FrontEnd, I currently live in Mexico and I work as an Software Architect",
-    "I like to learn about technology, programming lenguages, software architects, technology tools and I create projects open source as a hobby, well I also like to play guitar.",
-    "I worked at Werkn as a Frontend Developer, Grupo Castores as a Software Engineer, currently working at Flecha Amarilla as a Software Architect. My activities at GFA are: proposing technological solutions, architectural solutions to migrate systems and for new developments. Create and Propose guidelines, design patterns, standards. Provide research and technical training. Develop proofs of concept."
-]
+    "Mi nombre es Moisés Arrona, soy Ingeniero de Software, y he trabajado con varios lenguajes de programación. Tengo experiencia en el desarrollo tanto del backend como del frontend. Actualmente, vivo en México y trabajo como Arquitecto de Software.",
+    "Me gusta aprender sobre tecnología, lenguajes de programación, arquitecturas de software, patrones de diseño y herramientas tecnológicas para brindar soluciones, entre otras cosas. Como hobby, me gusta programar soluciones en distintos lenguajes de programación, he creado proyectos Open Source y, bueno, también me gusta tocar la guitarra.",
+    "He trabajado en Werken como Desarrollador Frontend, en Grupo Castores como Ingeniero de Software. En la actualidad, trabajo en Grupo Flecha Amarilla como Arquitecto de Software, donde brindo soluciones tecnológicas y arquitectura para software y nube. Propongo lineamientos, guías, estándares para un desarrollo seguro y de calidad. Documento procesos, desarrollo pruebas de concepto y, obvio, programo."
+];
 
 export const SKILLS = [
     {
@@ -10,29 +10,37 @@ export const SKILLS = [
         percent: "90%"
     },
     {
-        name: "C# / .ASP.NET",
-        percent: "50%"
-    },
-    {
         name: "PHP / Laravel",
-        percent: "95%"
+        percent: "80%"
     },
     {
-        name: "React",
+        name: "C# / .Net",
         percent: "60%"
     },
     {
-        name: "Angular",
-        percent: "90%"
+        name: "Python / Django",
+        percent: "50%"
     },
     {
-        name: "Git / GitHub",
-        percent: "90%"
+        name: "JavaScript / Angular",
+        percent: "85%"
     },
     {
-        name: "SQLServer / MySql",
+        name: "JavaScript / Reactjs",
         percent: "80%"
-    }
+    },
+    {
+        name: "HTML / CSS / GSAP / Threejs",
+        percent: "90%"
+    },
+    {
+        name: "SQLServer / MySQL",
+        percent: "80%"
+    },
+    {
+        name: "Microservicios / SOA",
+        percent: "80%"
+    },
 ]
 
 export const STUDIES = [

@@ -89,7 +89,7 @@ const About = () => {
       <div className='content__about glass' ref={contentAnimRef}>
         <article>
           <div className='spetial__content'>
-            <h1 className='spetial__title'><span className='spetial__letter'>W</span>ho I'm?</h1>
+            <h1 className='spetial__title'><span className='spetial__letter'>¿Q</span>uién soy?</h1>
           </div>
 
           {
@@ -102,7 +102,7 @@ const About = () => {
         </article>
 
         <article>
-          <h2>What do i know do?</h2>
+          <h2>¿Qué conozco?</h2>
 
           <div className='grid'>
             {
@@ -123,7 +123,7 @@ const About = () => {
         </article>
 
         <article>
-          <h2>What're my academic studies?</h2>
+          <h2>¿Qué estudie?</h2>
 
           <div className="grid">
             {
@@ -143,7 +143,7 @@ const About = () => {
         </article>
 
         <article>
-          <h2>Do you like contact me?</h2>
+          <h2>¿Dónde contactarme?</h2>
 
           <div className="grid">
             <div className="col__left">

@@ -146,13 +146,15 @@ const ProjectDetail = () => {
             </div>
           </article>
 
-          <article>|
+          <article>
             <div className='grid'>
               {
                 project.images.map((image, index) => {
                   return (
-                    <div className='image__container col__3 project__image' key={index} ref={imageAnimRef[index]}>
-                      <img src={image} />
+                    <div className="project col__3">
+                      <div className='project__image' key={index} ref={imageAnimRef[index]}>
+                        <img src={image} />
+                      </div>
                     </div>
                   )
                 })

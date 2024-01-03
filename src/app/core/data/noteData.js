@@ -1,22 +1,22 @@
 export const TIPS = [
     {
         home : [
-            "This website has many secret, discovered them",
-            "Ps ps ps, I've a terminal for u, use it",
-            "Oh, I'm Moises and this is my portfolio",
-            "I made it with React and love, I hope u like it."
+            "Este sitio web contiene algunos secretos, descubrelos.",
+            "Ps ps ps, tengo una terminal, usala",
+            "Oh, soy Moises, y este es mi portafolio",
+            "Lo hice con React, Gsap, Threejs y mucho amor 💘."
         ],
         about: [
-            "Scroll down to discover more about me...",
-            "Do you want to know my skills? Lets gooo",
-            "I'm Software Architect. I love writing code 👨🏻‍💻 and playing the guitar 🎸",
-            "Java, SpringBoot, PHP, Laravel, Angular, React, Git, SqlServer, Mysql, AWS etc."
+            "Haz scroll para que descubras mas de mi...",
+            "¿Quieres saber cuales son mis habilidades, ¡Vamos!",
+            "Soy Aqruitecto de software, amo escribir codigo 👨🏻‍💻 y tocar guitarra 🎸.",
+            "Desde Java, PHP, React, Angular hasta arquitecturas y patrones de diseño"
         ],
         projects: [
-            "I've some projects on Github, discover them",
-            "Arron EDI, Arron Privacy, moisesarrona.com, brisApp, and more",
-            "In my free time I maintain and create Open-Source projects for the community",
-            "In my job create Closed-Source projects,"
+            "Cuento con algunos proyectos en Github 🐙 descúbrelos",
+            "Arron EDI, Arron Privacy, moisesarrona.com, brisApp, y más.",
+            "En mi tiempo libre mantengo y creo proyectos Open Source.",
+            "En mi trabajo creo proyectos Closed-Source."
         ]
     }
 ]

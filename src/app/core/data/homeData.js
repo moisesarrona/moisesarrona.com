@@ -1,4 +1,4 @@
 export const WELCOME_DATA = {
-    title: "Welcome",
-    subtitle: "to my portfolio"
-  }
+  title: "¡Hola,",
+  subtitle: "eres bienvenido!",
+};

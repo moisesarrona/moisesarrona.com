@@ -1,3 +1,6 @@
+import {PROJECTS} from './projectData'
+import {SKILLS} from'./aboutData'
+
 export const COMMANDS = [
   'ls',
   'cd',
@@ -33,28 +36,23 @@ export const CONTENTS = [
   {
     home: [
       {
-        readme: "Hi humans and robots, I'm Software Architect and Software Engineer, I love writing code 👨🏻‍💻 and playing the guitar 🎸" +
-          "\nI made it with React and love, I hope u like it."
+        readme: "Hola humanos y robots, mi nombre es Moises Arrona, me gusta escribir codigo y tocar la guitarra, este es mi portafolio, así que echale un vistazo"
       }
     ],
     about: [
       {
-        readme: "I worked at Werkn as a Frontend Developer, Grupo Castores as a Software Engineer, currently working at Flecha Amarilla as a Software Architect." +
-          "\nMy activities at GFA are: proposing technological solutions, architectural solutions to migrate systems and for new developments." +
-          "Create and Propose guidelines, design patterns, standards. Provide research and technical training. Develop proofs of concept."
+        readme: "He trabajado en Werken como Desarrollador Frontend, en Grupo Castores como Ingeniero de Software. En la actualidad, trabajo en Grupo Flecha Amarilla como Arquitecto de Software, donde brindo soluciones tecnológicas y arquitectura para software y nube. Propongo lineamientos, guías, estándares para un desarrollo seguro y de calidad. Documento procesos, desarrollo pruebas de concepto y, obvio, programo."
       },
-      { skills: 'Throughout my professional career I have used various technologies and programming languages such as: Java, SpringBoot, C#, ASP.Net, PHP, Laravel, Angular, React, Git, GitLab, Github, SqlServer, Mysql, DB2, AWS etc.' }
+      { 
+        skills: `He trabajado con varios lenguajes de programación: ${SKILLS.map(skills => skills.name)}`
+      }
     ],
     projects: [
       {
-        readme: "In my free time I maintain and create Open-Source projects for the community and Closed-Source for Companies. Take a look at my projects." +
-          "\nI've some projects on Github, discover them"
+        readme: "Como hobby, me gusta programar soluciones en distintos lenguajes de programación, he creado proyectos Open Source y, bueno, también me gusta tocar la guitarra."
       },
       {
-        projects: "Arron EDI," +
-          "\nArron Privacy," +
-          "\nmoisesarrona.com," +
-          ".\nBrisApp"
+        projects: `Estos son los proyectos en los que he trabajado: ${PROJECTS.map(project => project.name)}`
       }
     ]
   }

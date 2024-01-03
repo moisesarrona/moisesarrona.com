@@ -1,16 +1,16 @@
 export const ITEM_PAGES = [
     {
-        name: "home",
+        name: "Inicio",
         link: "/home",
         active: true
     },
     {
-        name: "projects",
+        name: "Proyectos",
         link: "/projects",
         active: true
     },
     {
-        name: "about",
+        name: "Yo",
         link: "/about",
         active: true
     },
