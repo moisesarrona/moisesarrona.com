@@ -77,7 +77,7 @@ const ProjectItem = ({ project }) => {
         <div className='project' ref={itemAnimRef}>
           <div className='project__image' ref={itemImageAnimRef}>
             <span className='project__date'>{project.date}</span>
-            <img src={project.images[0]} alt="" />
+            <img src={project.images[0]} alt={project.name} />
             <span className='project__client'>{project.client}</span>
           </div>
 
