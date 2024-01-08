@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faInstagram, faLinkedinIn, faCodepen } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faLinkedinIn, faCodepen, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { ABOUT, SKILLS, STUDIES, CONTACT } from '../../core/data/aboutData';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
@@ -41,7 +41,7 @@ const About = () => {
 
     contentAnimation();
 
-    return() => {
+    return () => {
       gsap.killTweensOf([
         contentAnimRef.current
       ])
@@ -65,7 +65,7 @@ const About = () => {
             toggleActions: 'restart'
           },
         });
-  
+
         tl.from(percentRefs[index].current, {
           width: 0,
           duration: 1.3,
@@ -143,45 +143,34 @@ const About = () => {
         </article>
 
         <article>
-          <h2>¿Dónde contactarme?</h2>
+          <a href={`mailto:${CONTACT[3].link}`}>
+            <h2 className='contact__text'>Contactame</h2>
+          </a>
 
           <div className="grid">
-            <div className="col__left">
-              <div className="grid">
-                <div className='contact__profile col__2'>
-                  <img src='' className='contact__img' alt="i'm moy" />
-                  <a href='https://github.com/moisesarrona'
-                    target='_blank'
-                    className='contact_link'>@moisesarrona</a>
-                </div>
+            <div className="col__2">
+              <div className="contact__wrap">
+                {
+                  CONTACT
+                    .filter(link => link.name !== 'correo' && link.name !== 'instagram')
+                    .map((link, index) => {
 
-                <div className="contact__social col__1">
-                  {
-                    CONTACT
-                      .filter(link => link.name !== 'github')
-                      .map((link, index) => {
+                      const resolvedIcon = link.name === "instagram" ? faInstagram :
+                        link.name === "linkedin" ? faLinkedinIn :
+                          link.name === "correo" ? faEnvelope :
+                            link.name === "codepen" ? faCodepen : 
+                            link.name === "github" ? faGithub : null;
+                      const typeLink = link.name === "correo" ? "mailto:" : ""
 
-                        const resolvedIcon = link.name === "instagram" ? faInstagram :
-                          link.name === "linkedin" ? faLinkedinIn :
-                            link.name === "correo" ? faEnvelope :
-                              link.name === "codepen" ? faCodepen : null;
-                        const typeLink = link.name === "correo" ? "mailto:" : ""
-
-                        return (
-                          <div className='card' key={index}>
-                            <div className="card__body">
-                              <div className='card__title'>
-                                <a href={typeLink + link.link} target="_blank" rel="noopener noreferrer">
-                                  <FontAwesomeIcon icon={resolvedIcon} />
-                                </a>
-                                <a href="mailto:"></a>
-                              </div>
-                            </div>
-                          </div>
-                        )
-                      })
-                  }
-                </div>
+                      return (
+                        <div className="contact__item" key={index}>
+                          <a href={typeLink + link.link} target="_blank" rel="noopener noreferrer">
+                            <FontAwesomeIcon icon={resolvedIcon} />
+                          </a>
+                        </div>
+                      )
+                    })
+                }
               </div>
             </div>
           </div>

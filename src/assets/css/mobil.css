@@ -65,6 +65,22 @@
     }
 
 
+    /* --- ABOUT --- */
+    .content__about {
+
+        & .contact__text {
+            font-family: 'Autograf';
+            font-size: 15vw;
+            text-align: center;
+        }
+    
+        & .contact__item {
+            text-align: center;
+            font-size: var(--font_big);
+        }
+    }
+
+
     /* --- UTILITIES --- */
     .spetial__content {
         & .spetial__title {
