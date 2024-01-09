@@ -25,7 +25,7 @@ const useAvatar = () => {
     const initScene = () => {
       //Get canvas properties
       const canvas = canvasRef.current;
-      const { clientWidth: width, clientHeight: height} = canvas;
+      const { clientWidth: width, clientHeight: height } = canvas;
 
       //Envirement to Threejs
       const scene = new THREE.Scene();
@@ -41,7 +41,7 @@ const useAvatar = () => {
       cameraRef.current = camera;
 
       //Lights to model
-      const directionalLight = new THREE.DirectionalLight(0xffffff, 2.8);
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 3);
       directionalLight.position.set(1, 1, 2);
       directionalLight.castShadow = true;
       scene.add(directionalLight);
@@ -105,7 +105,7 @@ const useAvatar = () => {
         const action = mixer.clipAction(clip);
         actions.push(action)
       });
-      actionsRef.current =  actions;
+      actionsRef.current = actions;
       mixerRef.current = mixer;
     }
 
@@ -115,14 +115,14 @@ const useAvatar = () => {
      */
     const onMouseMove = (event) => {
       event.preventDefault();
-    
+
       if (modelRef.current) {
         const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
         const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-      
+
         const targetRotationY = (mouseX * Math.PI) / 2;
         const targetRotationX = -(mouseY * Math.PI) / 2;
-          
+
         gsap.to(modelRef.current.rotation, {
           y: targetRotationY * 0.15,
           x: targetRotationX * 0.06,
@@ -144,13 +144,60 @@ const useAvatar = () => {
       }
 
     }
-    
+
+    /**
+     * Generate particle and add animation
+     */
+    const generateParticles = () => {
+      const cubeGeometry = new THREE.BoxGeometry(0.4, 0.4, 0.4);
+      const cubeMaterial = new THREE.MeshStandardMaterial({
+        color: 0x288b7c,
+        wireframe: true,
+        opacity: 0.4,
+        transparent: true,
+      });
+
+      const particleCount = 800;
+      const cubes = [];
+
+      for (let i = 0; i < particleCount; i++) {
+
+        const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+
+        cube.position.set(
+          (Math.random() - 0.5) * 50,
+          (Math.random() - 0.5) * 50,
+          (Math.random() - 0.5) * 50
+        );
+
+        cube.rotation.set(
+          Math.random() * Math.PI * 2,
+          Math.random() * Math.PI * 2,
+          Math.random() * Math.PI * 2
+        );
+
+        cubes.push(cube);
+        scene.add(cube);
+
+        gsap.to(cube.rotation, {
+          x: cube.rotation.x + Math.PI * 4,
+          y: cube.rotation.y + Math.PI * 4,
+          z: cube.rotation.z + Math.PI * 4,
+          duration: 50,
+          repeat: -1,
+          ease: 'linear',
+        });
+      }
+    }
+
     const { scene, camera, renderer, canvas } = initScene();
 
     loadModel();
     animate();
+    generateParticles();
     window.addEventListener('resize', resizeModel);
     window.addEventListener('mousemove', onMouseMove);
+
 
     /**
      * Clean up functions
