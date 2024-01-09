@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLaptop, faTerminal, faCode, faSoap } from '@fortawesome/free-solid-svg-icons';
+import { faLaptop, faTerminal, faCode, faSoap, faPenFancy } from '@fortawesome/free-solid-svg-icons';
 import { faFirefox } from '@fortawesome/free-brands-svg-icons'
 import gsap from 'gsap';
 import { useLoader } from '../../context/LoadContext';
@@ -74,6 +74,7 @@ const ProjectFilter = ({
                       type.toUpperCase() === 'DESKTOP APP' ? faLaptop :
                       type.toUpperCase() === 'WEB APP' ? faFirefox :
                       type.toUpperCase() === 'LIBRARY' ? faTerminal :
+                      type.toUpperCase() === 'WEB SITE' ? faPenFancy :
                       type.toUpperCase() === 'MULTI APP' ? faCode : faSoap
                     } />
 

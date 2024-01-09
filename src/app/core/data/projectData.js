@@ -1,17 +1,20 @@
 export const PROJECTS = [
     {
         id: 1,
+        active: true,
         name: "Arron Edi",
         type: "Library",
         date: "Febrero 2023",
         client: "Open Source",
-        description: "Es una libreria Open-Source escrita en Java 17, que traduce y convierte documentos EDIx12 a JSON, lenguaje natural y clases Java. Es una libreria pensada para la comunidad de desarrolladores que brindan soluciones a trasnportistas.",
-        challenge: "El desafio técnico consistió en la documentación y analizis del formato EDIx12 para poder aterrizarlo lenguaje de programación y que este sea lo mas manipulable para el desarrollador.",
+        description: "Es una librería Open-Source escrita en Java 17, que traduce y convierte documentos EDIx12 a JSON, lenguaje natural y clases Java. Es una librería pensada para la comunidad de desarrolladores que brindan soluciones a transportistas.",
+        challenge: "El desafío técnico consistió en la documentación y análisis del formato EDIx12 para poder aterrizar en el lenguaje de programación y que este sea lo más manipulable para el desarrollador.",
         result: "https://github.com/moisesarrona/arron-edi",
         images: [
-            "../assets/img/arronedi/arronedi_github.png",
-            "../assets/img/arronedi/arronedi_code.png",
-            "../assets/img/arronedi/arronedi_code_.png"
+            "../assets/img/arronedi/arronedi_0.png",
+            "../assets/img/arronedi/arronedi_1.png",
+            "../assets/img/arronedi/arronedi_2.png",
+            "../assets/img/arronedi/arronedi_3.png",
+            "../assets/img/arronedi/arronedi_4.png"
         ],
         technologies: [
             "Java 17",
@@ -22,18 +25,20 @@ export const PROJECTS = [
     },
     {
         id: 2,
+        active: true,
         name: "BrisApp",
         type: "Web App",
         date: "Marzo 2021",
         client: "Bris Torres",
-        description: "Esta aplicación web automatiza procesos para un negocio de entretenimiento, administra a los empleado sy clientes, registra las enradas y salidas de el alamacen, agenda eventos y estos son visualizados en un calendario.",
-        challenge: "El reto técnico consistio en el analisis del proyecto ya que se debia pensar en una solución que no consumiera recursos y que fuera facil de usar para los usuarios no técnicos.",
+        description: "Esta aplicación web automatiza procesos para un negocio de entretenimiento, administra a los empleado sy clientes, registra las entradas y salidas del almacén, agenda eventos y estos son visualizados en un calendario.",
+        challenge: "El reto técnico consistió en el análisis del proyecto ya que se debía pensar en una solución que no consumiera recursos y que fuera fácil de usar para los usuarios no técnicos.",
         result: "https://github.com/moisesarrona/brisapp",
         images: [
-            "../assets/img/brisapp/brisapp_dashboard.png",
-            "../assets/img/brisapp/brisapp_calendar.png",
-            "../assets/img/brisapp/brisapp_prod_list.png",
-            "../assets/img/brisapp/brisapp_prod_add.png"
+            "../assets/img/brisapp/brisapp_0.png",
+            "../assets/img/brisapp/brisapp_1.png",
+            "../assets/img/brisapp/brisapp_2.png",
+            "../assets/img/brisapp/brisapp_3.png",
+            "../assets/img/brisapp/brisapp_4.png"
         ],
         technologies: [
             "Laravel 8",
@@ -44,18 +49,20 @@ export const PROJECTS = [
     },
     {
         id: 3,
+        active: true,
         name: "Arrona.com",
         type: "Web site",
         date: "Octubre del 2023",
         client: "Open Source",
-        description: "Este sitio web, es mi portafolio, muestro mi CV de manera mas dinamica y mas técnica, la intención es mostrar mis habilidades en algo mas 'tangible'",
-        challenge: "El desafio técnico fue que no sabia nada de React y Threejs, tenia conocmientos de JavaScript lo que permitio tener un panorama mas amplio, el proyecto tardo un poco mas de lo pensado de el resultado fue mucho mejor de lo esperado.",
+        description: "Este sitio web, es mi portafolio, muestro mi CV de manera mas dinamica y más técnica, la intención es mostrar mis habilidades en algo más 'tangible'",
+        challenge: "El desafío técnico fue que no sabía nada de React y Threejs, tenía conocimientos de JavaScript lo que permitió tener un panorama más amplio, el proyecto tardó un poco más de lo pensado y el resultado fue mucho mejor de lo esperado.",
         result: "https://moisesarrona.com/home",
         images: [
-            "../assets/img/moisesarrona/moisesarrona_home.png",
-            "../assets/img/moisesarrona/moisesarrona_about.png",
-            "../assets/img/moisesarrona/moisesarrona_projects.png",
-            "../assets/img/moisesarrona/moisesarrona_project_detail.png"
+            "../assets/img/moisesarrona/moisesarrona_0.png",
+            "../assets/img/moisesarrona/moisesarrona_1.png",
+            "../assets/img/moisesarrona/moisesarrona_2.png",
+            "../assets/img/moisesarrona/moisesarrona_3.png",
+            "../assets/img/moisesarrona/moisesarrona_4.png"
         ],
         technologies: [
             "Reactjs  18",
@@ -66,18 +73,20 @@ export const PROJECTS = [
     },
     {
         id: 4,
+        active: true,
         name: "InfinitoApp",
         type: "Web App",
         date: "Marzo del 2020",
         client: "Infinito Computación",
-        description: "Es una aplicación web que controla las tareas asiganadas a un equipo que brinda soluciones de soporte técnico, incorpora una mesa de ayuda para que el cliente interactue con el usuario responsable de brindar sulución.",
-        challenge: "El reto ténico fue adaptarse a los requerimientos y alcances ténicos del cliente, solicitaban que el sistema fuera desarrollado en PHP por la infraestructura, por lo que la solución propuesta fue desarrollar la aplicación en Laravel.",
+        description: "Es una aplicación web que controla las tareas asignadas a un equipo que brinda soluciones de soporte técnico, incorpora una mesa de ayuda para que el cliente interactúe con el usuario responsable de brindar solución.",
+        challenge: "El reto técnico fue adaptarse a los requerimientos y alcances técnicos del cliente, solicitaban que el sistema fuera desarrollado en PHP por la infraestructura, por lo que la solución propuesta fue desarrollar la aplicación en Laravel.",
         result: "https://github.com/moisesarrona/infinitoapp",
         images: [
-            "../assets/img/infinitoapp/infinito_dashboard.png",
-            "../assets/img/infinitoapp/infinito_ticket.png",
-            "../assets/img/infinitoapp/infinito_task_list.png",
-            "../assets/img/infinitoapp/infinito_task_add.png"
+            "../assets/img/infinitoapp/infinitoapp_0.png",
+            "../assets/img/infinitoapp/infinitoapp_1.png",
+            "../assets/img/infinitoapp/infinitoapp_2.png",
+            "../assets/img/infinitoapp/infinitoapp_3.png",
+            "../assets/img/infinitoapp/infinitoapp_4.png"
         ],
         technologies: [
             "Laravel 8",
@@ -88,15 +97,20 @@ export const PROJECTS = [
     },
     {
         id: 5,
+        active: true,
         name: "OldWestBoot",
-        type: "Desktop App",
+        type: "Desktop app",
         date: "Diciembre del 2018",
         client: "Universidad Tecnológica de León",
-        description: "OldWestBoot es una apliación de escritorio para Windows. Cuenta con catalogos para las entradas y salidas del almacen y, el monitorio de los recursos para el desarrollo de los productos, funciona como punto de venta del mismo producto desarrollado.",
-        challenge: "El reto técnico fue crear una aplicación de escritorio con una arquitectura limpia y escalable y asu vez conatra con un UI moderno y facil de entender.",
+        description: "OldWestBoot es una aplicación de escritorio para Windows. Cuenta con catálogos para las entradas y salidas del almacén y, el monitoreo de los recursos para el desarrollo de los productos, funciona como punto de venta del mismo producto desarrollado.",
+        challenge: "El reto técnico fue crear una aplicación de escritorio con una arquitectura limpia y escalable ya su vez contará con un UI moderno y fácil de entender.",
         result: "https://github.com/moisesarrona/OldWestBoots",
         images: [
-            "https://www.ideamotive.co/hubfs/app%20development%20cost.png",
+            "../assets/img/oldwest/oldwest_0.png",
+            "../assets/img/oldwest/oldwest_0.png",
+            "../assets/img/oldwest/oldwest_0.png",
+            "../assets/img/oldwest/oldwest_0.png",
+            "../assets/img/oldwest/oldwest_0.png"
         ],
         technologies: [
             ".Net Framework",
@@ -108,15 +122,20 @@ export const PROJECTS = [
     },
     {
         id: 6,
+        active: true,
         name: "TresAM",
-        type: "Web App",
+        type: "Web site",
         date: "Marzo 2017",
         client: "Universidad Tecnológica de León",
-        description: "3AM es una landing page creada para un proyecto escolar, tengo mucho cariño al proyecto ya que gracias a este proyecto inicie en el mundo del desarollo web.",
-        challenge: "El desafio técnico fue crear un sitio web sin plantiallas ni marcos de trabajo, por lo que los estilos, maquetación estan creados desde 0.",
+        description: "3AM es una landing page creada para un proyecto escolar, tengo mucho cariño al proyecto ya que gracias a este proyecto inicie en el mundo del desarrollo web.",
+        challenge: "El desafío técnico fue crear un sitio web sin plantillas ni marcos de trabajo, por lo que los estilos, maquetación están creados desde 0.",
         result: "https://github.com/moisesarrona/3AMCompany",
         images: [
-            "https://d540vms5r2s2d.cloudfront.net/mad/uploads/mad_blog_5f9716241755b1603737124.png"
+            "../assets/img/tresam/tresam_0.png",
+            "../assets/img/tresam/tresam_1.png",
+            "../assets/img/tresam/tresam_2.png",
+            "../assets/img/tresam/tresam_3.png",
+            "../assets/img/tresam/tresam_4.png"
         ],
         technologies: [
             "Html",
@@ -126,8 +145,9 @@ export const PROJECTS = [
     },
     {
         id: 7,
+        active: false,
         name: "Arron Utility",
-        type: "Desktop App",
+        type: "Desktop app",
         date: "Enero del 2024",
         client: "Open Source",
         description: "Aplicación de escritorio que permite guardar contraseña sobre accesos internos para evitar exponer dichas credecniales, incropora el uso de utilidades para el día día alarmas, recados y notas simples.",
@@ -144,8 +164,9 @@ export const PROJECTS = [
     },
     {
         id: 8,
+        active: false,
         name: "Arron Social",
-        type: "Web App",
+        type: "Web app",
         date: "Enero del 2024",
         client: "Close Source",
         description: "Aplicación web enfocada en ofrecer un medio al usario para mostrar su trabajo al mundo. Es una red social enfocada en mostrar trabajos investigativos, experiencias, profeciales etc",
