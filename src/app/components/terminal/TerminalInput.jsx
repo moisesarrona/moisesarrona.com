@@ -13,6 +13,7 @@ const TerminalInput = ({
           <input type="text"
             id='terminal'
             autoFocus
+            autoComplete='off'
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={inputSend} />

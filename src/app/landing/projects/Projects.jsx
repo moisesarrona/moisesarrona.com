@@ -56,7 +56,9 @@ const Projects = () => {
             clearFilter={clearFilter} />
 
           {
-            filteredProjects.map((project, index) => {
+            filteredProjects
+            .filter(project => project.active == true)
+            .map((project, index) => {
               return (
                 <ProjectItem key={index} project={project} />
               )

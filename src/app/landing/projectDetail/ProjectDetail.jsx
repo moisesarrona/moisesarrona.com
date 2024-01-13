@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { PROJECTS } from '../../core/data/projectData';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import useSlug from '../../hooks/useSlug';
 import gsap from 'gsap';
 import { useLoader } from '../../context/LoadContext';
@@ -9,8 +11,8 @@ const ProjectDetail = () => {
   const slugify = useSlug();
   const { name } = useParams();
   const project = PROJECTS.find(p => slugify(p.name) === name);
-  const nextProject = PROJECTS.find(p => p.id === (project.id + 1));
-  const prevProject = PROJECTS.find(p => p.id === (project.id - 1));
+  const nextProject = PROJECTS.filter(p => p.active === true).find(p => p.id === (project.id + 1));
+  const prevProject = PROJECTS.filter(p => p.active === true).find(p => p.id === (project.id - 1));
   const timeLine = gsap.timeline();
   const contentAnimRef = useRef();
   const resultAnimRef = useRef();
@@ -149,25 +151,23 @@ const ProjectDetail = () => {
           <article>
             <div className='grid'>
               {
-                project.images.map((image, index) => {
-                  return (
-                    <div className="project col__3">
-                      <div className='project__image' key={index} ref={imageAnimRef[index]}>
-                        <img src={image} />
-                      </div>
+                project.images.slice(1).map((image, index) => (
+                  <div className="project col__3" key={index} ref={imageAnimRef[index]}>
+                    <div className='project__image'>
+                      <img src={image} alt={`Project Image ${index}`}/>
                     </div>
-                  )
-                })
+                  </div>
+                ))
               }
             </div>
           </article>
 
           <div className='project__play'>
             {prevProject && (
-              <Link className='box' to={`/projects/${slugify(prevProject.name)}`}>{prevProject.name}</Link>
+              <Link className='box' to={`/projects/${slugify(prevProject.name)}`}> <FontAwesomeIcon icon={faArrowLeft} /> {prevProject.name}</Link>
             )}
             {nextProject && (
-              <Link className='box' to={`/projects/${slugify(nextProject.name)}`}>{nextProject.name}</Link>
+              <Link className='box' to={`/projects/${slugify(nextProject.name)}`}> <FontAwesomeIcon icon={faArrowRight} /> {nextProject.name}</Link>
             )}
           </div>
 

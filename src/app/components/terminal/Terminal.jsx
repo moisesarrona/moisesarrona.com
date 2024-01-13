@@ -3,11 +3,14 @@ import { COMMANDS, SECTIONS, TERMINAL_NAME, CONTENTS } from '../../core/data/ter
 import TerminalInput from './TerminalInput';
 import TerminalHistory from './TerminalHistory';
 import TerminalInfo from './TerminalInfo';
+import { ITEM_PAGES } from '../../core/data/templateData';
+import { useNavigate } from 'react-router-dom';
 
 const Terminal = () => {
   const [input, setInput] = useState('');
   const [history, setHistory] = useState([]);
   const [activeFolder, setActiveFolder] = useState('home');
+  const navigate = useNavigate();
 
   /**
    * Get input event
@@ -99,8 +102,12 @@ const Terminal = () => {
     const isCat = firstWord === 'cat'
     const isFile = secondWord.includes('.txt')
 
-    if (isCd && secondWord === '...') {
-      setActiveFolder('home')
+    if (isCd && secondWord === '..') {
+      let home = 'home'
+      setActiveFolder(home)
+      let page = getRoute(home);
+      if (page)
+        navigate(page.link)
       return
     }
 
@@ -114,6 +121,9 @@ const Terminal = () => {
             openFile(secondWord)
 
           } else if (isCd && !isFile) {
+            let page = getRoute(secondWord);
+            if (page)
+              navigate(page.link)
             setActiveFolder(secondWord)
 
           } else {
@@ -164,6 +174,15 @@ const Terminal = () => {
     } else {
       msgError(file, 'Error in show content');
     }
+  }
+
+  /**
+   * find and get information from route
+   * @param {string} page page to found
+   * @returns information from page
+   */
+  const getRoute = (route) => {
+    return ITEM_PAGES.find(pages => pages.link.includes(route))
   }
 
   return (

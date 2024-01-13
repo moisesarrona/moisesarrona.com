@@ -398,27 +398,23 @@ header {
     & .spetial__content {
         margin-bottom: 1.4rem;
     }
-}
 
-.contact__profile {
-    text-align: center;
-
-    & .contact__img {
-        width: 230px;
-        height: 230px;
-        border-radius: 100%;
+    & .contact__wrap {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
     }
 
-    & .contact_link {
-        display: block;
-        margin: var(--size-spacing);
+    & .contact__text {
+        font-family: 'Autograf';
+        font-size: 8vw;
     }
-}
 
-.contact__social {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    & .contact__item {
+        text-align: center;
+        font-size: var(--font_big);
+    }
 }
 
 .skill {
