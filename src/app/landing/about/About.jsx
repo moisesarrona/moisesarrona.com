@@ -123,7 +123,7 @@ const About = () => {
         </article>
 
         <article>
-          <h2>¿Qué estudie?</h2>
+          <h2>¿Qué estudié?</h2>
 
           <div className="grid">
             {
