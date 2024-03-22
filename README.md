@@ -1,9 +1,9 @@
 # moisesarrona.com
 Este sitio web es mi portafolio, muestro mis proyectos de manera más dinamica técnica, la intención es mostrar mis habilidades en algo mas 'tangible', poniendo aproba mis conocimiento agregando animaciones, modelo 3D y diseño moderno, espero que les guste el código fuente y el resultado del mismo: [https://moisesarrona.com](https://moisesarrona.com).
 
->__v0.0.0__  
+>__v0.0.2__  
 __Autor:__ [@moisesarrona](https://github.com/mosesarrona)  
-__Descripción:__ Primera versión lanzada a productivo.
+__Descripción:__ Corregiendo texto descriptivo.
 
 ## Caracteristicas
 
